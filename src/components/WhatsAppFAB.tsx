@@ -3,7 +3,7 @@
 import { WhatsAppIcon } from "@/components/icons";
 
 const WHATSAPP_URL =
-  "https://api.whatsapp.com/send?phone=628889888158&text=Hi%20Finetune!%20I%20need%20a%20professional%20website%20that%20fits%20my%20brand%20and%20I%20am%20interested%20in%20the%20services%20you%20offer.%20Can%20you%20help%3F";
+  "https://api.whatsapp.com/send?phone=628889888158&text=Hi%20GoodCode!%20I%20need%20a%20professional%20website%20that%20fits%20my%20brand%20and%20I%20am%20interested%20in%20the%20services%20you%20offer.%20Can%20you%20help%3F";
 
 export function WhatsAppFAB() {
   return (

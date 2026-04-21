@@ -17,7 +17,7 @@ const interDisplay = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Finetune — Premium Web Design & Development",
+  title: "GoodCode — Premium Web Design & Development",
   description:
     "Get a website that loads 3x faster and converts 20% more visitors. Professional, premium & exclusive web designs with high quality for your business.",
 };

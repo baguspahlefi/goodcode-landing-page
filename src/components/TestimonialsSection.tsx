@@ -1,5 +1,5 @@
 const WHATSAPP_URL =
-  "https://api.whatsapp.com/send?phone=628889888158&text=Hi%20Finetune!%20I%20need%20a%20professional%20website%20that%20fits%20my%20brand%20and%20I%20am%20interested%20in%20the%20services%20you%20offer.%20Can%20you%20help%3F";
+  "https://api.whatsapp.com/send?phone=628889888158&text=Hi%20GoodCode!%20I%20need%20a%20professional%20website%20that%20fits%20my%20brand%20and%20I%20am%20interested%20in%20the%20services%20you%20offer.%20Can%20you%20help%3F";
 
 interface Testimonial {
   company: string;
@@ -12,19 +12,19 @@ const row1Base: Testimonial[] = [
     company: "Beauty District",
     industry: "Beauty Clinic",
     quote:
-      "Working with Finetune has been a game-changer for our clinic. They crafted a beautiful, user-friendly website that truly reflects our brand. Our clients now enjoy the ease of booking treatments online—it's been a fantastic upgrade!",
+      "Working with GoodCode has been a game-changer for our clinic. They crafted a beautiful, user-friendly website that truly reflects our brand. Our clients now enjoy the ease of booking treatments online; it's been a fantastic upgrade!",
   },
   {
     company: "Beauty District",
     industry: "Beauty Clinic",
     quote:
-      "Working with Finetune has been a game-changer for our clinic. They crafted a beautiful, user-friendly website that truly reflects our brand. Our clients now enjoy the ease of booking treatments online—it's been a fantastic upgrade!",
+      "Working with GoodCode has been a game-changer for our clinic. They crafted a beautiful, user-friendly website that truly reflects our brand. Our clients now enjoy the ease of booking treatments online; it's been a fantastic upgrade!",
   },
   {
     company: "Danan Wingus Sakti",
     industry: "Technology Provider for Oil & Gas",
     quote:
-      "We needed a professional website to showcase our technology solutions, and Finetune exceeded our expectations. The design is clean, and the functionality is seamless. Highly recommended for B2B industries!",
+      "We needed a professional website to showcase our technology solutions, and GoodCode exceeded our expectations. The design is clean, and the functionality is seamless. Highly recommended for B2B industries!",
   },
 ];
 
@@ -33,13 +33,13 @@ const row2Base: Testimonial[] = [
     company: "Konakoni",
     industry: "Agency",
     quote:
-      "Finetune's expertise turned our outdated website into a dynamic and functional platform. The team was professional and efficient, ensuring everything was tailored to our needs.",
+      "GoodCode's expertise turned our outdated website into a dynamic and functional platform. The team was professional and efficient, ensuring everything was tailored to our needs.",
   },
   {
     company: "Tangguh Trans",
     industry: "Travel Company",
     quote:
-      "Finetune delivered exactly what we needed—a stunning, mobile-friendly website that perfectly showcases our travel packages. The process was smooth, efficient, and exceeded our expectations!",
+      "GoodCode delivered exactly what we needed; a stunning, mobile-friendly website that perfectly showcases our travel packages. The process was smooth, efficient, and exceeded our expectations!",
   },
 ];
 

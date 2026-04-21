@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface FeatureCard {
   title: string;
   desc: string;
@@ -40,7 +42,7 @@ export function HowItWorksSection() {
       <div className="max-w-6xl mb-8">
         <h2 className="text-2xl font-medium mb-2 text-[#1F4E88]">How It Works</h2>
         <p className="text-base text-[#2F5F98]">
-          Let&apos;s Build Your Professional Website Fast. Flawless. Finetuned.
+          Let&apos;s Build Your Professional Website Fast. Flawless. GoodCode.
         </p>
       </div>
 
@@ -72,7 +74,7 @@ export function HowItWorksSection() {
                 <p className="text-sm text-[#4F84BC] leading-relaxed">{card.desc}</p>
               </div>
               <div className="relative w-full h-auto mt-auto flex items-end justify-end">
-                <img src={card.img} alt={card.title} className={card.imgClass} />
+                <Image src={card.img} alt={card.title} width={360} height={220} className={card.imgClass} />
               </div>
             </div>
           ))}

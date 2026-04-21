@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 export function StickyScrollSection() {
@@ -70,20 +71,20 @@ export function StickyScrollSection() {
           style={{ aspectRatio: "1.4 / 1", perspective: "1000px" }}
         >
           <div style={card1Style}>
-            <img src="/images/scroll-card-1.png" alt="" className="w-full h-full object-cover" />
+            <Image src="/images/scroll-card-1.png" alt="" fill sizes="(max-width: 768px) 300px, 450px" className="w-full h-full object-cover" />
           </div>
           <div style={card2Style}>
-            <img src="/images/scroll-card-2.png" alt="" className="w-full h-full object-cover" />
+            <Image src="/images/scroll-card-2.png" alt="" fill sizes="(max-width: 768px) 300px, 450px" className="w-full h-full object-cover" />
           </div>
           <div style={card3Style}>
-            <img src="/images/scroll-card-3.png" alt="" className="w-full h-full object-cover" />
+            <Image src="/images/scroll-card-3.png" alt="" fill sizes="(max-width: 768px) 300px, 450px" className="w-full h-full object-cover" />
           </div>
         </div>
 
         <div className="flex space-x-2 text-[28px] md:text-[40px] font-medium text-[#1F4E88]">
           <span style={{ opacity: 0.2 + p1 * 0.8 }}>Fast.</span>
           <span style={{ opacity: 0.2 + p2 * 0.8 }}>Flawless.</span>
-          <span style={{ opacity: 0.2 + p3 * 0.8 }}>Finetuned.</span>
+          <span style={{ opacity: 0.2 + p3 * 0.8 }}>GoodCode.</span>
         </div>
 
         <p className="text-[#2F5F98] text-center max-w-[400px] font-thin mt-3 mb-6 text-base">

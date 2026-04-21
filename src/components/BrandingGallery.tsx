@@ -1,5 +1,7 @@
+import Image from "next/image";
+
 const WHATSAPP_URL =
-  "https://api.whatsapp.com/send?phone=628889888158&text=Hi%20Finetune!%20I%20need%20a%20professional%20website%20that%20fits%20my%20brand%20and%20I%20am%20interested%20in%20the%20services%20you%20offer.%20Can%20you%20help%3F";
+  "https://api.whatsapp.com/send?phone=628889888158&text=Hi%20GoodCode!%20I%20need%20a%20professional%20website%20that%20fits%20my%20brand%20and%20I%20am%20interested%20in%20the%20services%20you%20offer.%20Can%20you%20help%3F";
 
 const galleryImages = [
   "/images/gallery/gallery-1.webp",
@@ -51,7 +53,7 @@ export function BrandingGallery() {
           >
             {doubled.map((src, i) => (
               <div key={i} className="flex-shrink-0 w-72 h-52 rounded-lg overflow-hidden inline-block">
-                <img src={src} alt="" className="w-full h-full object-cover" />
+                <Image src={src} alt="" width={288} height={208} className="w-full h-full object-cover" />
               </div>
             ))}
           </div>
@@ -65,7 +67,7 @@ export function BrandingGallery() {
           >
             {doubled.map((src, i) => (
               <div key={i} className="flex-shrink-0 w-72 h-52 rounded-lg overflow-hidden inline-block">
-                <img src={src} alt="" className="w-full h-full object-cover" />
+                <Image src={src} alt="" width={288} height={208} className="w-full h-full object-cover" />
               </div>
             ))}
           </div>

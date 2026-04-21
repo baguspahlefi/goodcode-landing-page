@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { SettingsGearIcon } from "@/components/icons";
 
 export function ServicesSection() {
@@ -37,10 +38,12 @@ export function ServicesSection() {
                   "/services/web/Our Services 2.png",
                   "/services/web/Our Services 3.png",
                 ].map((src, j) => (
-                  <img
+                  <Image
                     key={`${i}-${j}`}
                     src={src}
                     alt=""
+                    width={290}
+                    height={190}
                     className="h-auto w-[290px] rounded-lg flex-shrink-0 object-cover"
                   />
                 ))
@@ -63,15 +66,19 @@ export function ServicesSection() {
           tabIndex={0}
         >
           <div className="relative bg-[#C5D3E2] rounded-lg overflow-hidden h-[258px]">
-            <img
+            <Image
               src="/services/dashboard/Ui Component - Chart.png"
               alt=""
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="absolute inset-0 overflow-hidden border-l border-[#eaf1f9] group-hover:border-transparent transition-all duration-500">
-              <img
+              <Image
                 src="/services/dashboard/Ui Component - Chart Black.png"
                 alt=""
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="w-full h-full object-cover transition-transform duration-500 translate-x-[50%] group-hover:translate-x-0"
               />
             </div>
@@ -92,15 +99,19 @@ export function ServicesSection() {
           tabIndex={0}
         >
           <div className="relative bg-[#C5D3E2] rounded-lg overflow-hidden h-[258px] flex items-end justify-center">
-            <img
+            <Image
               src="/services/mobile/Mobile 2.png"
               alt=""
+              width={180}
+              height={232}
               className="absolute bottom-0 w-auto h-[90%] object-contain transition-all duration-500 opacity-0 scale-[0.85] translate-x-0 group-hover:opacity-100 group-hover:translate-x-[70px] group-hover:translate-y-[70px]"
               style={{ transitionTimingFunction: "cubic-bezier(0.34,1.56,0.64,1)" }}
             />
-            <img
+            <Image
               src="/services/mobile/Mobile 1.png"
               alt=""
+              width={180}
+              height={232}
               className="relative z-10 w-auto h-[90%] object-contain transition-all duration-500 scale-[2] translate-y-[150px] group-hover:scale-[1.5] group-hover:translate-y-[70px] group-hover:-translate-x-[50px]"
               style={{ transitionTimingFunction: "cubic-bezier(0.34,1.56,0.64,1)" }}
             />
@@ -124,9 +135,11 @@ export function ServicesSection() {
             <div className="flex flex-wrap gap-4 w-[200px] transition-transform duration-500 group-hover:translate-x-28">
               {Array.from({ length: 15 }, (_, i) => (
                 <div key={i} className="w-[42px] h-[42px] bg-[#eaf1f9] rounded-2xl flex items-center justify-center">
-                  <img
+                  <Image
                     src={`/services/maintenance/Maintenance Icon-${i + 1}.png`}
                     alt=""
+                    width={28}
+                    height={28}
                     className="w-7 h-7 object-contain mix-blend-multiply"
                   />
                 </div>

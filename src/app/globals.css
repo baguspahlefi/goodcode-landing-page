@@ -42,7 +42,7 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
 
-  /* finetune.id custom tokens */
+  /* GoodCode custom tokens */
   --color-ft-bg: #d5dfea;
   --color-ft-card: #e7eef7;
   --color-ft-card-border: #aec5dd;
@@ -138,7 +138,7 @@
   }
 }
 
-/* ============ FINETUNE.ID ANIMATIONS ============ */
+/* ============ GOODCODE ANIMATIONS ============ */
 
 @keyframes scroll {
   0% { transform: translateX(0); }

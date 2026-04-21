@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const brandLogos = [
   { src: "/images/brands/devin.png", alt: "Devin" },
   { src: "/images/brands/tangguh.png", alt: "Tangguh" },
@@ -26,7 +28,7 @@ export function HeroSidebar() {
 
       <div className="flex flex-col sm:flex-row gap-3 mt-8 mb-8">
         <a
-          href="https://api.whatsapp.com/send?phone=628889888158&text=Hi%20Finetune!%20I%20need%20a%20professional%20website%20that%20fits%20my%20brand%20and%20I%20am%20interested%20in%20the%20services%20you%20offer.%20Can%20you%20help%3F"
+          href="https://api.whatsapp.com/send?phone=628889888158&text=Hi%20GoodCode!%20I%20need%20a%20professional%20website%20that%20fits%20my%20brand%20and%20I%20am%20interested%20in%20the%20services%20you%20offer.%20Can%20you%20help%3F"
           target="_blank"
           rel="noopener noreferrer"
           className="gc-glass-btn"
@@ -62,9 +64,11 @@ export function HeroSidebar() {
           <div className="flex gap-4 items-center h-[40px] animate-scroll">
             {doubled.map((logo, i) => (
               <div key={i} className="flex-shrink-0 grayscale hover:grayscale-0 transition-all flex items-center">
-                <img
+                <Image
                   src={logo.src}
                   alt={logo.alt}
+                  width={75}
+                  height={32}
                   className="object-contain w-auto max-h-[32px] max-w-[75px]"
                 />
               </div>
