@@ -16,13 +16,13 @@ export default function Home() {
       <Navbar />
       <WhatsAppFAB />
 
-      {/* Two-column layout: fixed left sidebar + scrollable right content */}
+      {/* Mobile: pinned hero with content sliding up. Desktop: two-column layout. */}
       <div className="md:flex">
-        {/* Left: fixed sidebar */}
+        {/* Left: hero/pinned sidebar */}
         <HeroSidebar />
 
-        {/* Right: scrollable content column */}
-        <main className="md:ml-[33vw] md:w-[calc(100%-33vw)] bg-transparent min-h-screen px-6 md:px-10">
+        {/* Right: content layer that rises over the pinned hero on mobile */}
+        <main className="relative z-20 -mt-10 rounded-t-[28px] border-t border-[#AEC5DD] bg-[#d5dfea]/95 backdrop-blur-sm min-h-screen px-6 md:px-10 md:mt-0 md:rounded-none md:border-0 md:bg-transparent md:backdrop-blur-none md:ml-[33vw] md:w-[calc(100%-33vw)]">
           <LatestPortfolio />
           <FeaturedPortfolio />
           <ServicesSection />

@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 const items = [
@@ -30,7 +32,10 @@ export function LatestPortfolio() {
 
       <div className="grid grid-cols-1 gap-5">
         {items.map((item, index) => (
-          <div key={index} className="relative rounded-2xl overflow-hidden aspect-[16/9] group">
+          <div
+            key={index}
+            className="relative rounded-2xl overflow-hidden aspect-[16/9] group"
+          >
             {item.type === "video" ? (
               <video
                 src={item.src}

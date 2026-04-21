@@ -13,7 +13,7 @@ const doubled = [...brandLogos, ...brandLogos];
 
 export function HeroSidebar() {
   return (
-    <aside className="md:fixed md:left-0 md:top-0 md:h-screen md:max-w-[33vw] w-full bg-[#eaf1f9]/80 backdrop-blur-sm border-r border-[#aec5dd] flex flex-col overflow-y-auto p-[32px]">
+    <aside className="sticky top-0 h-[100svh] md:fixed md:left-0 md:top-0 md:h-screen md:max-w-[33vw] w-full bg-[#eaf1f9]/85 backdrop-blur-sm border-r border-[#aec5dd] flex flex-col overflow-hidden md:overflow-y-auto p-[32px]">
       {/* Spacer matching navbar logo height */}
       <span className="inline-block mb-[41px] h-[24px]" />
 
