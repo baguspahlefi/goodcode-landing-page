@@ -18,11 +18,11 @@ export default function Home() {
 
       {/* Two-column layout: fixed left sidebar + scrollable right content */}
       <div className="md:flex">
-        {/* Left: fixed white sidebar */}
+        {/* Left: fixed sidebar */}
         <HeroSidebar />
 
-        {/* Right: scrollable dark content column */}
-        <main className="md:ml-[33vw] md:w-[calc(100%-33vw)] bg-[#0A0A0A] min-h-screen px-6 md:px-10">
+        {/* Right: scrollable content column */}
+        <main className="md:ml-[33vw] md:w-[calc(100%-33vw)] bg-transparent min-h-screen px-6 md:px-10">
           <LatestPortfolio />
           <FeaturedPortfolio />
           <ServicesSection />

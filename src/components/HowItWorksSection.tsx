@@ -36,10 +36,10 @@ const doubled = [...cards, ...cards];
 
 export function HowItWorksSection() {
   return (
-    <section id="process" className="text-white mt-[237px]">
+    <section id="process" className="text-[#1F4E88] mt-[237px]">
       <div className="max-w-6xl mb-8">
-        <h2 className="text-2xl font-medium mb-2 text-[#F9FAFB]">How It Works</h2>
-        <p className="text-base text-[#E0E1EA]">
+        <h2 className="text-2xl font-medium mb-2 text-[#1F4E88]">How It Works</h2>
+        <p className="text-base text-[#2F5F98]">
           Let&apos;s Build Your Professional Website Fast. Flawless. Finetuned.
         </p>
       </div>
@@ -47,11 +47,11 @@ export function HowItWorksSection() {
       <div className="relative flex overflow-hidden">
         <div
           className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to right, rgb(10,10,10), transparent)" }}
+          style={{ background: "linear-gradient(to right, rgb(213,223,234), transparent)" }}
         />
         <div
           className="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to left, rgb(10,10,10), transparent)" }}
+          style={{ background: "linear-gradient(to left, rgb(213,223,234), transparent)" }}
         />
 
         <div
@@ -61,15 +61,15 @@ export function HowItWorksSection() {
           {doubled.map((card, index) => (
             <div
               key={index}
-              className="w-[320px] md:w-[360px] h-[420px] flex-shrink-0 rounded-2xl border-2 border-[#1F1F1F] bg-[#141414] overflow-hidden flex flex-col justify-between group relative"
+              className="w-[320px] md:w-[360px] h-[420px] flex-shrink-0 rounded-2xl border-2 border-[#AEC5DD] bg-[#E7EEF7] overflow-hidden flex flex-col justify-between group relative"
             >
               <div
                 className="absolute top-[-10px] left-40 w-[32px] h-[180px] rounded-full rotate-[-21deg] pointer-events-none"
-                style={{ background: "rgba(247,247,255,0.3)", filter: "blur(75px)" }}
+                style={{ background: "rgba(107,155,203,0.4)", filter: "blur(75px)" }}
               />
               <div className="relative z-10 p-8 flex flex-col items-start gap-4">
-                <h3 className="text-xl font-semibold text-[#F9FAFB]">{card.title}</h3>
-                <p className="text-sm text-[#AAAEBB] leading-relaxed">{card.desc}</p>
+                <h3 className="text-xl font-semibold text-[#1F4E88]">{card.title}</h3>
+                <p className="text-sm text-[#4F84BC] leading-relaxed">{card.desc}</p>
               </div>
               <div className="relative w-full h-auto mt-auto flex items-end justify-end">
                 <img src={card.img} alt={card.title} className={card.imgClass} />

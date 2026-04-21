@@ -10,45 +10,36 @@ const galleryImages = [
 
 const doubled = [...galleryImages, ...galleryImages];
 
-function RedButton({ className }: { className?: string }) {
+function BrandButton({ className }: { className?: string }) {
   return (
     <a
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center rounded-[320px] p-[1px] whitespace-nowrap ${className ?? ""}`}
-      style={{
-        background: "linear-gradient(180deg, rgb(251,205,203) 0%, rgb(235,33,21) 100%)",
-        boxShadow: "rgba(238,62,52,0.2) 0px 2px 2px 0px",
-      }}
+      className={`gc-glass-btn ${className ?? ""}`}
     >
-      <span
-        className="flex items-center justify-center rounded-[320px] px-8 py-3 text-base text-[#F9FAFB] whitespace-nowrap"
-        style={{ background: "linear-gradient(180deg, rgb(241,95,87) 0%, rgb(235,30,19) 100%)" }}
-      >
-        Book a call
-      </span>
+      Book a call
     </a>
   );
 }
 
 export function BrandingGallery() {
   return (
-    <section className="text-white">
+    <section className="text-[#1F4E88]">
       <div className="flex flex-row justify-between mt-[160px] mb-8 items-end">
-        <h2 className="max-w-[370px] text-2xl font-medium leading-[33.6px] tracking-[-0.48px] text-[#F9FAFB]">
+        <h2 className="max-w-[370px] text-2xl font-medium leading-[33.6px] tracking-[-0.48px] text-[#1F4E88]">
           Apps, Websites, Branding Everything You Need About Design
         </h2>
-        <RedButton className="hidden md:inline-flex" />
+        <BrandButton className="hidden md:inline-flex" />
       </div>
 
-      <div className="relative overflow-hidden rounded-2xl border-2 border-[#1F1F1F] py-[38px]">
+      <div className="relative overflow-hidden rounded-2xl border-2 border-[#AEC5DD] bg-[#E7EEF7]/70 py-[38px]">
         <div
-          className="absolute top-1/4 left-1/2 w-[32px] h-[740px] bg-[#F9FAFB] rounded-full blur-[100px] -translate-x-1/2 rotate-[-90deg] z-0 pointer-events-none"
+          className="absolute top-1/4 left-1/2 w-[32px] h-[740px] bg-[#6B9BCB] rounded-full blur-[100px] -translate-x-1/2 rotate-[-90deg] z-0 pointer-events-none"
           style={{ opacity: 0.15 }}
         />
         <div
-          className="absolute top-3/4 left-1/2 w-[32px] h-[740px] bg-[#F9FAFB] rounded-full blur-[100px] -translate-x-1/2 rotate-[-90deg] z-0 pointer-events-none"
+          className="absolute top-3/4 left-1/2 w-[32px] h-[740px] bg-[#6B9BCB] rounded-full blur-[100px] -translate-x-1/2 rotate-[-90deg] z-0 pointer-events-none"
           style={{ opacity: 0.15 }}
         />
 
@@ -81,7 +72,7 @@ export function BrandingGallery() {
         </div>
 
         <div className="md:hidden max-w-[140px] mt-[38px] mx-auto flex justify-center">
-          <RedButton />
+          <BrandButton />
         </div>
       </div>
     </section>

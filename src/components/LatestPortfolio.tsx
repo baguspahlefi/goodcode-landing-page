@@ -25,7 +25,7 @@ export function LatestPortfolio() {
   return (
     <section id="hero" className="pt-[100px] pb-16">
       <div className="mb-12">
-        <h2 className="text-xl md:text-2xl font-medium text-[#F9FAFB]">Latest Portfolio</h2>
+        <h2 className="text-xl md:text-2xl font-medium text-[#1F4E88]">Latest Portfolio</h2>
       </div>
 
       <div className="grid grid-cols-1 gap-5">

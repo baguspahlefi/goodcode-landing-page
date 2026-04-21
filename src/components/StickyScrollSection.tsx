@@ -80,13 +80,13 @@ export function StickyScrollSection() {
           </div>
         </div>
 
-        <div className="flex space-x-2 text-[28px] md:text-[40px] font-medium text-gray-100">
+        <div className="flex space-x-2 text-[28px] md:text-[40px] font-medium text-[#1F4E88]">
           <span style={{ opacity: 0.2 + p1 * 0.8 }}>Fast.</span>
           <span style={{ opacity: 0.2 + p2 * 0.8 }}>Flawless.</span>
           <span style={{ opacity: 0.2 + p3 * 0.8 }}>Finetuned.</span>
         </div>
 
-        <p className="text-[#E0E1EA] text-center max-w-[400px] font-thin mt-3 mb-6 text-base">
+        <p className="text-[#2F5F98] text-center max-w-[400px] font-thin mt-3 mb-6 text-base">
           Delivering user-focused website solutions that drive impact and set you apart from the competition.
         </p>
 
@@ -94,18 +94,9 @@ export function StickyScrollSection() {
           href="https://astakona.sg.larksuite.com/share/base/form/shrlgDF86d3TLy5irv1GLxa5AQb"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center rounded-[320px] p-[1px] whitespace-nowrap"
-          style={{
-            background: "linear-gradient(180deg, rgb(251,205,203) 0%, rgb(235,33,21) 100%)",
-            boxShadow: "rgba(238,62,52,0.2) 0px 2px 2px 0px",
-          }}
+          className="gc-glass-btn"
         >
-          <span
-            className="flex items-center justify-center rounded-[320px] px-8 py-3 text-base text-[#F9FAFB] whitespace-nowrap"
-            style={{ background: "linear-gradient(180deg, rgb(241,95,87) 0%, rgb(235,30,19) 100%)" }}
-          >
-            Start Your Project Today
-          </span>
+          Start Your Project Today
         </a>
       </div>
     </div>

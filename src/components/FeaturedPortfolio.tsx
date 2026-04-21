@@ -22,10 +22,10 @@ const portfolioItems: PortfolioItem[] = [
 
 export function FeaturedPortfolio() {
   return (
-    <section id="portfolio" className="bg-[#0A0A0A] pt-24">
+    <section id="portfolio" className="bg-transparent pt-24">
       <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-8">
-        <h2 className="text-2xl font-medium text-[#F9FAFB]">Featured Portfolio</h2>
-        <p className="text-base text-zinc-300 max-w-[470px]">
+        <h2 className="text-2xl font-medium text-[#1F4E88]">Featured Portfolio</h2>
+        <p className="text-base text-[#2F5F98] max-w-[470px]">
           Take a closer look at how we deliver professional, user-centered website solutions tailored to businesses of all sizes.
         </p>
       </div>
@@ -40,16 +40,16 @@ export function FeaturedPortfolio() {
                 fill
                 className="object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-3"
               />
-              <div className="absolute inset-0 bg-[#0A0A0A]/0 group-hover:bg-[#0A0A0A]/50 transition-all duration-500 z-10" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white rounded-full flex items-center justify-center opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500 z-20">
-                <ArrowUpRightIcon className="w-8 h-8 text-black" />
+              <div className="absolute inset-0 bg-[#2F5F98]/0 group-hover:bg-[#2F5F98]/45 transition-all duration-500 z-10" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-[#EAF1F9] rounded-full flex items-center justify-center opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500 z-20">
+                <ArrowUpRightIcon className="w-8 h-8 text-[#1F4E88]" />
               </div>
             </div>
             <div className="pt-4">
-              <p className="text-lg font-normal text-[#F9FAFB]">{item.title}</p>
-              <div className="flex items-center gap-2 text-sm text-zinc-400">
+              <p className="text-lg font-normal text-[#1F4E88]">{item.title}</p>
+              <div className="flex items-center gap-2 text-sm text-[#4F84BC]">
                 <span>{item.year}</span>
-                <span className="w-1 h-1 rounded-full bg-zinc-400 inline-block" />
+                <span className="w-1 h-1 rounded-full bg-[#4F84BC] inline-block" />
                 <span>{item.cat}</span>
               </div>
             </div>
@@ -60,18 +60,9 @@ export function FeaturedPortfolio() {
       <div className="flex justify-center">
         <a
           href="/portfolio"
-          className="inline-flex items-center justify-center rounded-[320px] p-[1px] whitespace-nowrap"
-          style={{
-            background: "linear-gradient(180deg, rgb(251,205,203) 0%, rgb(235,33,21) 100%)",
-            boxShadow: "rgba(238,62,52,0.2) 0px 2px 2px 0px",
-          }}
+          className="gc-glass-btn"
         >
-          <span
-            className="flex items-center justify-center rounded-[320px] px-8 py-3 text-base text-[#F9FAFB] whitespace-nowrap"
-            style={{ background: "linear-gradient(180deg, rgb(241,95,87) 0%, rgb(235,30,19) 100%)" }}
-          >
-            View All Portfolio
-          </span>
+          View All Portfolio
         </a>
       </div>
     </section>

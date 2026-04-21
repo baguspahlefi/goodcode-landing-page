@@ -43,45 +43,45 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 
   /* finetune.id custom tokens */
-  --color-ft-bg: #0A0A0A;
-  --color-ft-card: #141414;
-  --color-ft-card-border: #1F1F1F;
-  --color-ft-text: #F9FAFB;
-  --color-ft-text-muted: #AAAEBB;
-  --color-ft-text-secondary: #C1C5D7;
-  --color-ft-text-light: #E0E1EA;
-  --color-ft-red-from: #F15F57;
-  --color-ft-red-to: #EB1E13;
+  --color-ft-bg: #d5dfea;
+  --color-ft-card: #e7eef7;
+  --color-ft-card-border: #aec5dd;
+  --color-ft-text: #1f4e88;
+  --color-ft-text-muted: #4f84bc;
+  --color-ft-text-secondary: #2f5f98;
+  --color-ft-text-light: #6b9bcb;
+  --color-ft-blue-from: #6b9bcb;
+  --color-ft-blue-to: #2f5f98;
 }
 
 :root {
-  --background: #0A0A0A;
-  --foreground: #F9FAFB;
-  --card: #141414;
-  --card-foreground: #F9FAFB;
-  --popover: #141414;
-  --popover-foreground: #F9FAFB;
-  --primary: #F15F57;
-  --primary-foreground: #F9FAFB;
-  --secondary: #1F1F1F;
-  --secondary-foreground: #F9FAFB;
-  --muted: #1F1F1F;
-  --muted-foreground: #AAAEBB;
-  --accent: #272930;
-  --accent-foreground: #F9FAFB;
+  --background: #d5dfea;
+  --foreground: #1f4e88;
+  --card: #e7eef7;
+  --card-foreground: #1f4e88;
+  --popover: #e7eef7;
+  --popover-foreground: #1f4e88;
+  --primary: #4f84bc;
+  --primary-foreground: #f5f9ff;
+  --secondary: #c5d3e2;
+  --secondary-foreground: #2f5f98;
+  --muted: #c5d3e2;
+  --muted-foreground: #4f84bc;
+  --accent: #aec5dd;
+  --accent-foreground: #1f4e88;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: #1F1F1F;
-  --input: #272930;
-  --ring: #F15F57;
+  --border: #aec5dd;
+  --input: #c5d3e2;
+  --ring: #4f84bc;
   --radius: 0.625rem;
-  --sidebar: #141414;
-  --sidebar-foreground: #F9FAFB;
-  --sidebar-primary: #F15F57;
-  --sidebar-primary-foreground: #F9FAFB;
-  --sidebar-accent: #272930;
-  --sidebar-accent-foreground: #F9FAFB;
-  --sidebar-border: #1F1F1F;
-  --sidebar-ring: #F15F57;
+  --sidebar: #e7eef7;
+  --sidebar-foreground: #1f4e88;
+  --sidebar-primary: #4f84bc;
+  --sidebar-primary-foreground: #f5f9ff;
+  --sidebar-accent: #c5d3e2;
+  --sidebar-accent-foreground: #1f4e88;
+  --sidebar-border: #aec5dd;
+  --sidebar-ring: #4f84bc;
 }
 
 @layer base {
@@ -89,11 +89,52 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-[#0A0A0A] text-[#F9FAFB];
+    @apply text-[#1f4e88];
+    background:
+      radial-gradient(circle at 0% 100%, rgba(107, 155, 203, 0.5) 0%, rgba(107, 155, 203, 0) 34%),
+      radial-gradient(circle at 100% 0%, rgba(197, 211, 226, 0.7) 0%, rgba(197, 211, 226, 0) 48%),
+      linear-gradient(180deg, #d5dfea 0%, #c5d3e2 100%);
     font-family: var(--font-inter-display), "Inter", ui-sans-serif, system-ui, sans-serif;
   }
   html {
     font-family: var(--font-inter-display), "Inter", ui-sans-serif, system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .gc-glass-btn {
+    @apply inline-flex items-center justify-center rounded-[320px] px-8 py-3 text-base whitespace-nowrap;
+    color: #f5f9ff;
+    border: 1px solid rgba(245, 249, 255, 0.46);
+    background: linear-gradient(135deg, rgba(107, 155, 203, 0.4) 0%, rgba(47, 95, 152, 0.9) 100%);
+    box-shadow: 0 16px 32px rgba(31, 78, 136, 0.22), inset 0 1px 0 rgba(245, 249, 255, 0.35);
+    backdrop-filter: blur(10px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+
+  .gc-glass-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 18px 36px rgba(31, 78, 136, 0.26), inset 0 1px 0 rgba(245, 249, 255, 0.5);
+    background: linear-gradient(135deg, rgba(107, 155, 203, 0.52) 0%, rgba(47, 95, 152, 0.95) 100%);
+  }
+
+  .gc-glass-btn:active {
+    transform: translateY(0);
+  }
+
+  .gc-glass-btn-light {
+    @apply inline-flex items-center justify-center rounded-[320px] px-8 py-3 text-base whitespace-nowrap;
+    color: #1f4e88;
+    border: 1px solid rgba(79, 132, 188, 0.28);
+    background: linear-gradient(135deg, rgba(245, 249, 255, 0.75) 0%, rgba(197, 211, 226, 0.8) 100%);
+    box-shadow: 0 10px 24px rgba(79, 132, 188, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .gc-glass-btn-light:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 28px rgba(79, 132, 188, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.8);
   }
 }
 

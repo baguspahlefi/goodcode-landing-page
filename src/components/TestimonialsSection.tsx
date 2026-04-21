@@ -49,16 +49,16 @@ const row2 = [...row2Base, ...row2Base, ...row2Base];
 function TestimonialCard({ t }: { t: Testimonial }) {
   return (
     <div className="w-[450px] h-[239px] flex-shrink-0">
-      <div className="relative w-full h-full bg-[#141414] border-2 border-[#1F1F1F] rounded-2xl p-6 shadow-lg overflow-hidden">
+      <div className="relative w-full h-full bg-[#e7eef7]/90 border-2 border-[#aec5dd] rounded-2xl p-6 shadow-lg overflow-hidden">
         <div
           className="absolute top-[-10px] left-40 w-[32px] h-[180px] rounded-full rotate-[-21deg] pointer-events-none"
-          style={{ background: "rgba(247,247,255,0.3)", filter: "blur(75px)" }}
+          style={{ background: "rgba(107,155,203,0.4)", filter: "blur(75px)" }}
         />
         <div className="relative z-10 h-full flex flex-col justify-between">
-          <p className="text-sm text-[#AAAEBB] leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
+          <p className="text-sm text-[#4F84BC] leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
           <div className="space-y-1">
-            <p className="text-lg font-normal text-[#F9FAFB]">{t.company}</p>
-            <p className="text-sm text-[#AAAEBB]">{t.industry}</p>
+            <p className="text-lg font-normal text-[#1F4E88]">{t.company}</p>
+            <p className="text-sm text-[#4F84BC]">{t.industry}</p>
           </div>
         </div>
       </div>
@@ -77,11 +77,11 @@ function MarqueeRow({
     <div className="relative flex overflow-hidden">
       <div
         className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
-        style={{ background: "linear-gradient(to right, rgb(10,10,10), transparent)" }}
+        style={{ background: "linear-gradient(to right, rgb(213,223,234), transparent)" }}
       />
       <div
         className="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
-        style={{ background: "linear-gradient(to left, rgb(10,10,10), transparent)" }}
+        style={{ background: "linear-gradient(to left, rgb(213,223,234), transparent)" }}
       />
       <div
         className="flex gap-6 flex-nowrap min-w-max"
@@ -99,25 +99,16 @@ function MarqueeRow({
 
 export function TestimonialsSection() {
   return (
-    <section id="testimonial" className="bg-zinc-950 pb-[100px] overflow-hidden">
+    <section id="testimonial" className="bg-transparent pb-[100px] overflow-hidden">
       <div className="max-w-7xl mx-auto mb-[38px] flex items-center justify-between flex-wrap gap-6">
-        <h2 className="text-2xl font-normal text-[#F9FAFB]">Trusted By Customers</h2>
+        <h2 className="text-2xl font-normal text-[#1F4E88]">Trusted By Customers</h2>
         <a
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:inline-flex items-center justify-center rounded-[320px] p-[1px] whitespace-nowrap"
-          style={{
-            background: "linear-gradient(180deg, rgb(251,205,203) 0%, rgb(235,33,21) 100%)",
-            boxShadow: "rgba(238,62,52,0.2) 0px 2px 2px 0px",
-          }}
+          className="hidden md:inline-flex gc-glass-btn"
         >
-          <span
-            className="flex items-center justify-center rounded-[320px] px-8 py-3 text-base text-[#F9FAFB] whitespace-nowrap"
-            style={{ background: "linear-gradient(180deg, rgb(241,95,87) 0%, rgb(235,30,19) 100%)" }}
-          >
-            Book a call
-          </span>
+          Book a call
         </a>
       </div>
 
@@ -131,18 +122,9 @@ export function TestimonialsSection() {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center rounded-[320px] p-[1px] whitespace-nowrap"
-          style={{
-            background: "linear-gradient(180deg, rgb(251,205,203) 0%, rgb(235,33,21) 100%)",
-            boxShadow: "rgba(238,62,52,0.2) 0px 2px 2px 0px",
-          }}
+          className="gc-glass-btn"
         >
-          <span
-            className="flex items-center justify-center rounded-[320px] px-8 py-3 text-base text-[#F9FAFB] whitespace-nowrap"
-            style={{ background: "linear-gradient(180deg, rgb(241,95,87) 0%, rgb(235,30,19) 100%)" }}
-          >
-            Book a call
-          </span>
+          Book a call
         </a>
       </div>
     </section>

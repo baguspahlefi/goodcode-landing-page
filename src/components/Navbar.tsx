@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { FinetuneLogo, MenuIcon } from "@/components/icons";
+import Image from "next/image";
+import { MenuIcon } from "@/components/icons";
 
 const navLinks = [
   { label: "Portfolio", href: "/portfolio" },
@@ -13,22 +14,23 @@ export function Navbar() {
   return (
     <>
       <nav
-        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-[26px] bg-transparent"
-        style={{ mixBlendMode: "difference" }}
+        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-8 py-[22px] bg-transparent"
       >
-        <Link href="/" style={{ mixBlendMode: "difference" }}>
-          <div className="w-[167px] md:w-[200px] text-[#E0E1EA]">
-            <FinetuneLogo className="w-auto h-auto" />
-          </div>
+        <Link href="/" className="inline-flex items-center">
+          <Image
+            src="/images/goodcode-logo.svg"
+            alt="GoodCode"
+            width={230}
+            height={52}
+            priority
+            className="w-[170px] md:w-[230px] h-auto drop-shadow-[0_8px_20px_rgba(79,132,188,0.18)]"
+          />
         </Link>
 
-        <ul
-          className="hidden md:flex gap-4 text-[#E0E1EA] font-extralight text-base leading-[20px]"
-          style={{ mixBlendMode: "difference" }}
-        >
+        <ul className="hidden md:flex gap-5 text-[#2F5F98] font-normal text-base leading-[20px]">
           {navLinks.map(({ label, href }) => (
             <li key={href}>
-              <Link href={href} className="hover:text-white transition-colors duration-200">
+              <Link href={href} className="hover:text-[#1F4E88] transition-colors duration-200">
                 {label}
               </Link>
             </li>
@@ -38,10 +40,10 @@ export function Navbar() {
 
       <button
         type="button"
-        className="fixed top-8 right-8 z-50 md:hidden w-10 h-10 border border-gray-300 bg-[#EEEFF5] rounded-lg flex flex-col items-center justify-center gap-1.5 hover:bg-gray-300 transition-colors"
+        className="fixed top-6 right-6 z-50 md:hidden w-10 h-10 border border-white/40 bg-white/35 backdrop-blur-md rounded-lg flex flex-col items-center justify-center gap-1.5 shadow-[0_10px_24px_rgba(31,78,136,0.18)] hover:bg-white/50 transition-all"
         aria-label="Open menu"
       >
-        <MenuIcon className="w-5 h-3.5 text-gray-700" />
+        <MenuIcon className="w-5 h-3.5 text-[#2F5F98]" />
       </button>
     </>
   );

@@ -1,0 +1,29 @@
+<svg width="760" height="170" viewBox="0 0 760 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ringGradient" x1="65" y1="20" x2="210" y2="150" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6B9BCB"/>
+      <stop offset="1" stop-color="#4F84BC"/>
+    </linearGradient>
+    <linearGradient id="textGradient" x1="255" y1="35" x2="690" y2="130" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2F5F98"/>
+      <stop offset="1" stop-color="#1F4E88"/>
+    </linearGradient>
+  </defs>
+
+  <path d="M181.5 132H156.5V117.5C146.5 126.5 133 132 117.5 132C82 132 53.5 103 53.5 67.5C53.5 32 82 3 117.5 3C143.5 3 166.5 18 176.5 41L160.5 54C154.5 35.5 137.5 22 117.5 22C92.5 22 72 42.5 72 67.5C72 92.5 92.5 113 117.5 113C137.5 113 154.5 99.5 160.5 81H126V62.5H181.5V132Z" fill="url(#ringGradient)"/>
+
+  <path d="M108.5 56H95L83.5 67.5L95 79H108.5L96 67.5L108.5 56Z" fill="#4F84BC"/>
+  <path d="M127.5 56H141L152.5 67.5L141 79H127.5L140 67.5L127.5 56Z" fill="#4F84BC"/>
+
+  <rect x="103" y="60" width="7" height="7" rx="1.5" fill="#4F84BC"/>
+  <rect x="115" y="60" width="7" height="7" rx="1.5" fill="#4F84BC"/>
+  <rect x="127" y="60" width="7" height="7" rx="1.5" fill="#4F84BC"/>
+  <rect x="103" y="72" width="7" height="7" rx="1.5" fill="#4F84BC"/>
+  <rect x="115" y="72" width="7" height="7" rx="1.5" fill="#4F84BC"/>
+  <rect x="127" y="72" width="7" height="7" rx="1.5" fill="#4F84BC"/>
+  <rect x="103" y="84" width="7" height="7" rx="1.5" fill="#4F84BC"/>
+  <rect x="115" y="84" width="7" height="7" rx="1.5" fill="#4F84BC"/>
+  <rect x="127" y="84" width="7" height="7" rx="1.5" fill="#4F84BC"/>
+
+  <text x="230" y="108" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="108" font-weight="500" letter-spacing="-2" fill="url(#textGradient)">GoodCode</text>
+</svg>
