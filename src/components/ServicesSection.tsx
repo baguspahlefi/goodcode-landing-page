@@ -8,6 +8,8 @@ const CARD_STYLE = { background: "#F7ECCD", border: "2px solid #DCC58F" };
 const CARD_IMG_BG = { background: "#EFDCAB" };
 const GLOW = { background: "rgba(217,131,36,0.18)", filter: "blur(100px)" };
 
+const marketplaces = ["Shopee", "Tokopedia", "Lazada", "TikTok Shop", "Bukalapak"];
+
 export function ServicesSection() {
   return (
     <section id="services" className="bg-transparent mt-[160px]">
@@ -24,7 +26,50 @@ export function ServicesSection() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {/* Card 1: Website Development */}
+        {/* Card 1: Migrasi Ecommerce */}
+        <div className={CARD_BASE} style={CARD_STYLE} tabIndex={0}>
+          <div className="relative rounded-lg overflow-hidden h-[258px] flex flex-col items-center justify-center gap-5 px-6" style={CARD_IMG_BG}>
+            <div className="absolute w-48 h-48 rounded-full pointer-events-none" style={{ background: "rgba(217,131,36,0.15)", filter: "blur(80px)", top: "50%", left: "50%", transform: "translate(-50%,-50%)" }} />
+            {/* Marketplace chips → arrow → brand */}
+            <div className="relative z-10 flex flex-col items-center gap-3 w-full">
+              <div className="flex flex-wrap justify-center gap-2">
+                {marketplaces.map((mp) => (
+                  <span
+                    key={mp}
+                    className="text-xs font-medium px-3 py-1 rounded-full"
+                    style={{ background: "rgba(68,54,39,0.12)", color: "#443627", border: "1px solid rgba(68,54,39,0.18)" }}
+                  >
+                    {mp}
+                  </span>
+                ))}
+              </div>
+              <div className="flex items-center gap-3 mt-1">
+                <div className="h-px w-10" style={{ background: "rgba(68,54,39,0.25)" }} />
+                <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: "#D98324" }}>Migrasi ke</span>
+                <div className="h-px w-10" style={{ background: "rgba(68,54,39,0.25)" }} />
+              </div>
+              <div
+                className="px-5 py-2 rounded-full text-sm font-semibold transition-all duration-500 group-hover:scale-105"
+                style={{ background: "linear-gradient(135deg, #D98324 0%, #B86B1A 100%)", color: "#fff", boxShadow: "0 8px 20px rgba(217,131,36,0.35)" }}
+              >
+                Website Brand Kamu
+              </div>
+            </div>
+            <p className="relative z-10 text-xs text-center leading-relaxed" style={{ color: "#6B5238" }}>
+              Domain sendiri · Checkout otomatis · Ongkir terintegrasi
+            </p>
+          </div>
+          <div className="relative pt-6 flex flex-col items-center text-center z-10">
+            <div className="absolute w-24 h-24 rounded-full pointer-events-none left-[20%] top-1/2 -translate-x-1/2 -translate-y-1/2" style={GLOW} />
+            <div className="absolute w-24 h-24 rounded-full pointer-events-none right-[20%] top-1/2 translate-x-1/2 -translate-y-1/2" style={GLOW} />
+            <h3 className="text-xl font-semibold mb-2" style={{ color: "#443627" }}>Migrasi Ecommerce</h3>
+            <p className="text-base max-w-[320px]" style={{ color: "#6B5238" }}>
+              Pindah dari marketplace ke toko online milik sendiri — tanpa kehilangan pembeli, tanpa komisi platform.
+            </p>
+          </div>
+        </div>
+
+        {/* Card 2: Landing Page & Company Profile */}
         <div className={CARD_BASE} style={CARD_STYLE} tabIndex={0}>
           <div
             className="relative rounded-lg overflow-hidden h-[258px]"
@@ -45,14 +90,14 @@ export function ServicesSection() {
           <div className="relative pt-6 flex flex-col items-center text-center z-10">
             <div className="absolute w-24 h-24 rounded-full pointer-events-none left-[20%] top-1/2 -translate-x-1/2 -translate-y-1/2" style={GLOW} />
             <div className="absolute w-24 h-24 rounded-full pointer-events-none right-[20%] top-1/2 translate-x-1/2 -translate-y-1/2" style={GLOW} />
-            <h3 className="text-xl font-semibold mb-2" style={{ color: "#443627" }}>Pembuatan Website</h3>
+            <h3 className="text-xl font-semibold mb-2" style={{ color: "#443627" }}>Landing Page & Company Profile</h3>
             <p className="text-base max-w-[320px]" style={{ color: "#6B5238" }}>
-              Website teroptimasi yang terbukti meraih skor 90+ di Google PageSpeed.
+              Website profesional yang mengonversi pengunjung jadi pembeli — cepat, rapi, dan skor PageSpeed 90+.
             </p>
           </div>
         </div>
 
-        {/* Card 2: Dashboard App */}
+        {/* Card 3: Dashboard & Aplikasi */}
         <div className={CARD_BASE} style={CARD_STYLE} tabIndex={0}>
           <div className="relative rounded-lg overflow-hidden h-[258px]" style={CARD_IMG_BG}>
             <Image src="/services/dashboard/Ui Component - Chart.png" alt="" fill sizes="(max-width: 768px) 100vw, 50vw" className="absolute inset-0 w-full h-full object-cover" />
@@ -65,23 +110,7 @@ export function ServicesSection() {
             <div className="absolute w-24 h-24 rounded-full pointer-events-none right-[20%] top-1/2 translate-x-1/2 -translate-y-1/2" style={GLOW} />
             <h3 className="text-xl font-semibold mb-2" style={{ color: "#443627" }}>Dashboard & Aplikasi</h3>
             <p className="text-base max-w-[320px]" style={{ color: "#6B5238" }}>
-              Dashboard berbasis data yang mempermudah pengelolaan bisnis dan pengambilan keputusan.
-            </p>
-          </div>
-        </div>
-
-        {/* Card 3: UI/UX & Mobile */}
-        <div className={CARD_BASE} style={CARD_STYLE} tabIndex={0}>
-          <div className="relative rounded-lg overflow-hidden h-[258px] flex items-end justify-center" style={CARD_IMG_BG}>
-            <Image src="/services/mobile/Mobile 2.png" alt="" width={180} height={232} className="absolute bottom-0 w-auto h-[90%] object-contain transition-all duration-500 opacity-0 scale-[0.85] translate-x-0 group-hover:opacity-100 group-hover:translate-x-[70px] group-hover:translate-y-[70px]" style={{ transitionTimingFunction: "cubic-bezier(0.34,1.56,0.64,1)" }} />
-            <Image src="/services/mobile/Mobile 1.png" alt="" width={180} height={232} className="relative z-10 w-auto h-[90%] object-contain transition-all duration-500 scale-[2] translate-y-[150px] group-hover:scale-[1.5] group-hover:translate-y-[70px] group-hover:-translate-x-[50px]" style={{ transitionTimingFunction: "cubic-bezier(0.34,1.56,0.64,1)" }} />
-          </div>
-          <div className="relative pt-6 flex flex-col items-center text-center z-10">
-            <div className="absolute w-24 h-24 rounded-full pointer-events-none left-[20%] top-1/2 -translate-x-1/2 -translate-y-1/2" style={GLOW} />
-            <div className="absolute w-24 h-24 rounded-full pointer-events-none right-[20%] top-1/2 translate-x-1/2 -translate-y-1/2" style={GLOW} />
-            <h3 className="text-xl font-semibold mb-2" style={{ color: "#443627" }}>UI/UX &amp; Mobile App</h3>
-            <p className="text-base max-w-[320px]" style={{ color: "#6B5238" }}>
-              Antarmuka yang berpusat pada pengguna — dirancang untuk pengalaman digital yang mulus.
+              Sistem internal berbasis web untuk kelola pesanan, stok, dan data bisnis kamu dalam satu tempat.
             </p>
           </div>
         </div>
@@ -105,9 +134,9 @@ export function ServicesSection() {
           <div className="relative pt-6 flex flex-col items-center text-center z-10">
             <div className="absolute w-24 h-24 rounded-full pointer-events-none left-[20%] top-1/2 -translate-x-1/2 -translate-y-1/2" style={GLOW} />
             <div className="absolute w-24 h-24 rounded-full pointer-events-none right-[20%] top-1/2 translate-x-1/2 -translate-y-1/2" style={GLOW} />
-            <h3 className="text-xl font-semibold mb-2" style={{ color: "#443627" }}>Maintenance Website</h3>
+            <h3 className="text-xl font-semibold mb-2" style={{ color: "#443627" }}>Maintenance & Support</h3>
             <p className="text-base max-w-[320px]" style={{ color: "#6B5238" }}>
-              Perawatan rutin, pembaruan keamanan, dan optimasi performa agar website tetap prima.
+              Perawatan rutin, pembaruan keamanan, dan optimasi performa agar website tetap prima setiap saat.
             </p>
           </div>
         </div>
