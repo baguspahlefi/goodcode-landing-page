@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Fraunces, DM_Sans } from "next/font/google";
 import "./globals.css";
 
 const interDisplay = localFont({
@@ -16,10 +17,27 @@ const interDisplay = localFont({
   fallback: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
 });
 
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  style: ["normal", "italic"],
+  variable: "--font-fraunces",
+  display: "swap",
+  adjustFontFallback: false,
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-dm-sans",
+  display: "swap",
+  adjustFontFallback: false,
+});
+
 export const metadata: Metadata = {
-  title: "GoodCode — Premium Web Design & Development",
+  title: "Good.code — Website Ecommerce untuk UMKM Indonesia",
   description:
-    "Get a website that loads 3x faster and converts 20% more visitors. Professional, premium & exclusive web designs with high quality for your business.",
+    "Spesialis migrasi marketplace ke website sendiri. Saya bantu pemilik toko online migrasi dari Shopee, Tokopedia ke website ecommerce milik sendiri.",
 };
 
 export default function RootLayout({
@@ -29,8 +47,8 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      className={`${interDisplay.variable} h-full antialiased`}
+      lang="id"
+      className={`${interDisplay.variable} ${fraunces.variable} ${dmSans.variable} h-full antialiased`}
     >
       <body className="min-h-full">{children}</body>
     </html>

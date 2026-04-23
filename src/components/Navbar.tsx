@@ -3,11 +3,11 @@ import Image from "next/image";
 import { MenuIcon } from "@/components/icons";
 
 const navLinks = [
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Services", href: "/#services" },
-  { label: "How it Works", href: "/#process" },
-  { label: "FAQ", href: "/#faq" },
-  { label: "Testimonials", href: "/#testimonial" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "#services" },
+  { label: "How it Works", href: "#process" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Testimonials", href: "#testimonial" },
 ];
 
 export function Navbar() {

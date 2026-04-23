@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good.code — Website Ecommerce untuk UMKM Indonesia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:        #F2F6D0;
+  --bg2:       #EFDCAB;
+  --bg3:       #F7ECCD;
+  --white:     #FFFFFF;
+  --surface:   #F7ECCD;
+  --border:    #DCC58F;
+  --border2:   #C6A466;
+  --text:      #443627;
+  --text2:     #6B5238;
+  --text3:     #92724F;
+  --accent:    #D98324;
+  --accent2:   #B86B1A;
+  --accent-dim:rgba(217,131,36,0.12);
+  --accent-border:rgba(217,131,36,0.28);
+  --green:     #8C7A2A;
+  --green-dim: rgba(140,122,42,0.12);
+  --red-dim:   rgba(121,65,35,0.12);
+  --red:       #794123;
+  --font-d:    'Fraunces',serif;
+  --font-b:    'DM Sans',sans-serif;
+  --max:       1060px;
+  --r:         10px;
+  --r2:        14px;
+  --r3:        20px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+.container{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(242,246,208,0.86);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid transparent;padding:16px 0;transition:border-color .3s,background .3s}
+nav.scrolled{background:rgba(239,220,171,0.95);border-color:var(--border)}
+nav .container{display:flex;justify-content:space-between;align-items:center}
+.nav-logo{font-family:var(--font-d);font-size:20px;font-weight:500;color:var(--text);text-decoration:none;letter-spacing:-.01em}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:13px;color:var(--text3);text-decoration:none;transition:color .2s;font-weight:400}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--accent);color:#fff;padding:9px 20px;border-radius:100px;font-size:13px;font-weight:500;text-decoration:none;transition:all .2s}
+.nav-cta:hover{background:var(--accent2);transform:translateY(-1px);box-shadow:0 6px 16px rgba(217,131,36,.3)}
+.nav-burger{display:none;background:var(--white);border:1px solid var(--border);color:var(--text2);width:36px;height:36px;border-radius:8px;cursor:pointer;font-size:16px;align-items:center;justify-content:center;transition:border-color .2s}
+.nav-burger:hover{border-color:var(--border2)}
+.mob-nav{display:none;flex-direction:column;position:fixed;top:57px;left:0;right:0;background:rgba(247,236,205,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 24px 24px;z-index:99;gap:2px}
+.mob-nav.open{display:flex}
+.mob-nav a{font-size:15px;color:var(--text2);text-decoration:none;padding:11px 0;border-bottom:1px solid var(--border);transition:color .2s}
+.mob-nav a:hover{color:var(--text)}
+.mob-nav .mob-cta{margin-top:8px;background:var(--accent);color:#fff;text-align:center;padding:13px;border-radius:100px;font-weight:500;border:none;font-size:14px}
+
+/* ── HERO ── */
+.hero{padding:100px 0 0;min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding-bottom:60px}
+.hero-label{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-dim);border:1px solid var(--accent-border);padding:5px 13px;border-radius:100px;margin-bottom:24px}
+.hero-label::before{content:'';width:6px;height:6px;background:var(--accent);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:var(--font-d);font-size:clamp(34px,4.5vw,54px);font-weight:400;letter-spacing:-.025em;line-height:1.1;color:var(--text);margin-bottom:20px}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero-sub{font-size:16px;color:var(--text2);line-height:1.8;margin-bottom:32px;font-weight:300;max-width:480px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:32px}
+.btn-main{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;padding:13px 26px;border-radius:100px;font-size:14px;font-weight:500;text-decoration:none;transition:all .25s;font-family:var(--font-b)}
+.btn-main:hover{background:var(--accent2);transform:translateY(-2px);box-shadow:0 10px 24px rgba(217,131,36,.32)}
+.btn-ghost{display:inline-flex;align-items:center;gap:6px;color:var(--text2);font-size:14px;text-decoration:none;border:1px solid var(--border2);padding:12px 22px;border-radius:100px;transition:all .2s;background:var(--white)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
+.hero-trust{font-size:12px;color:var(--text3);display:flex;gap:16px;flex-wrap:wrap}
+.hero-trust span{display:flex;align-items:center;gap:5px}
+.hero-trust span::before{content:'✓';color:var(--green);font-weight:700;font-size:11px}
+
+/* HERO IMAGE */
+.hero-img-wrap{position:relative}
+.hero-img-wrap img{width:100%;border-radius:var(--r3);display:block;box-shadow:0 24px 64px rgba(68,54,39,.14)}
+.hero-stat-bar{position:absolute;bottom:-1px;left:0;right:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-radius:0 0 var(--r3) var(--r3);padding:16px 24px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border)}
+.hero-stat-item{text-align:center;padding:0 8px}
+.hero-stat-item:not(:last-child){border-right:1px solid var(--border)}
+.hero-stat-num{font-family:var(--font-d);font-size:18px;font-weight:500;color:var(--accent);line-height:1.2;margin-bottom:2px}
+.hero-stat-label{font-size:11px;color:var(--text3);line-height:1.3}
+
+/* ── TICKER ── */
+.ticker{background:var(--text);padding:13px 0;overflow:hidden;white-space:nowrap;margin-top:0}
+.ticker-wrap{display:inline-flex;gap:44px;animation:scroll 28s linear infinite}
+.ticker-wrap:hover{animation-play-state:paused}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.tick{font-size:11px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.5);flex-shrink:0}
+.tick-sep{color:var(--accent);opacity:.7;font-size:10px}
+
+/* ── SECTIONS ── */
+.sec{padding:96px 0}
+.sec-white{background:var(--white)}
+.sec-alt{background:var(--bg2)}
+.sec-num{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:6px}
+.s-eye{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.s-eye::before{content:'';width:20px;height:1.5px;background:var(--accent);flex-shrink:0}
+h2.sh{font-family:var(--font-d);font-size:clamp(26px,3.5vw,42px);font-weight:400;letter-spacing:-.022em;line-height:1.12;color:var(--text);margin-bottom:14px}
+h2.sh em{font-style:italic;color:var(--accent)}
+.sp{font-size:15px;color:var(--text2);font-weight:300;line-height:1.75;max-width:520px}
+
+/* ── MASALAH ── */
+#masalah .sec-num{font-size:12px}
+#masalah .s-eye{font-size:12px}
+#masalah h2.sh{font-size:clamp(34px,4.8vw,58px);line-height:1.08;max-width:760px}
+#masalah .sp{font-size:18px;line-height:1.8;max-width:760px}
+.prob-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:52px}
+.prob-card{position:relative;background:var(--white);overflow:hidden;border:1px solid var(--border2);border-radius:var(--r2);padding:34px;transition:border-color .3s,transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s cubic-bezier(.16,1,.3,1)}
+.prob-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,#D98324 0%,#B86B1A 100%);opacity:.85;transition:opacity .3s,width .3s}
+.prob-card:hover{border-color:var(--accent2);transform:translateY(-4px);box-shadow:0 14px 30px rgba(68,54,39,.14)}
+.prob-card:hover::before{opacity:1;width:8px}
+.prob-n{font-size:20px;font-weight:500;letter-spacing:.06em;color:var(--accent2);margin-bottom:16px;font-family:var(--font-d);line-height:1}
+.prob-card h3{font-size:30px;font-weight:500;color:var(--text);margin-bottom:14px;line-height:1.16;letter-spacing:-.015em;font-family:var(--font-d)}
+.prob-card p{font-size:20px;color:var(--text2);line-height:1.6;font-weight:400}
+.prob-key{color:#D98324;font-weight:700}
+.prob-hot{color:#9F3E17;font-weight:700}
+.prob-pulse{display:inline-block;animation:probPulse 2.4s ease-in-out infinite}
+@keyframes probPulse{0%,100%{transform:translateY(0);text-shadow:0 0 0 rgba(217,131,36,0)}50%{transform:translateY(-1px);text-shadow:0 0 14px rgba(217,131,36,.24)}}
+.prob-cta-row{margin-top:48px;padding:20px 24px;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:var(--r);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.prob-cta-text{font-size:14px;color:var(--text2)}
+.prob-cta-text strong{color:var(--text);font-weight:500}
+.prob-cta-link{font-size:13px;color:var(--accent);font-weight:500;text-decoration:none;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.prob-cta-link:hover{color:var(--accent2)}
+
+/* ── SOLUSI ── */
+.sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;margin-top:48px}
+.sol-card{background:var(--white);padding:28px 24px;transition:background .2s}
+.sol-card:hover{background:var(--bg3)}
+.sol-arrow{font-size:11px;color:var(--accent);font-weight:600;margin-bottom:12px;letter-spacing:.02em}
+.sol-card h3{font-size:15px;font-weight:500;color:var(--text);margin-bottom:8px;line-height:1.3}
+.sol-card p{font-size:13px;color:var(--text2);line-height:1.65;font-weight:300}
+
+/* ── PORTO ── */
+.porto-main{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:48px}
+.pc{background:var(--white);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;transition:border-color .3s,transform .35s cubic-bezier(.16,1,.3,1)}
+.pc:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 12px 36px rgba(68,54,39,.1)}
+.pc.big{grid-column:1/-1}
+.pc-screen{height:220px;background:var(--bg);position:relative;overflow:hidden}
+.pc.big .pc-screen{height:300px}
+.pc-mock{position:absolute;inset:16px;background:var(--white);border-radius:10px;border:1px solid var(--border);overflow:hidden;box-shadow:0 4px 20px rgba(68,54,39,.09)}
+.pc-bar{height:28px;background:var(--bg3);display:flex;align-items:center;gap:5px;padding:0 12px;border-bottom:1px solid var(--border)}
+.pc-dot{width:8px;height:8px;border-radius:50%}
+.pc-dot.r{background:#ff6059}.pc-dot.y{background:#febc2e}.pc-dot.g{background:#27c840}
+.pc-url{flex:1;background:var(--bg2);border-radius:4px;height:14px;margin:0 10px}
+.pc-body{padding:16px}
+.pc-hero-m{height:56px;background:var(--bg);border-radius:6px;margin-bottom:10px;display:flex;align-items:center;padding:0 14px;gap:12px}
+.pc-lines{flex:1;display:flex;flex-direction:column;gap:5px}
+.pc-l{height:9px;background:var(--border);border-radius:3px}
+.pc-l.w60{width:60%}.pc-l.w40{width:40%;background:var(--bg3)}
+.pc-cbtn{width:58px;height:24px;background:var(--accent-dim);border-radius:100px;flex-shrink:0;border:1px solid var(--accent-border)}
+.pc-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.pc-ci{background:var(--bg);border-radius:5px;overflow:hidden}
+.pc-ci-img{height:38px}
+.pc-ci-bd{padding:5px 7px}
+.pc-ci-l{height:7px;background:var(--border);border-radius:2px;margin-bottom:3px}
+.pc-ci-p{height:7px;background:var(--accent-dim);border-radius:2px;width:55%}
+.pc-info{padding:20px 24px}
+.pc-label{font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.pc-name{font-family:var(--font-d);font-size:20px;font-weight:400;color:var(--text);margin-bottom:5px}
+.pc-desc{font-size:13px;color:var(--text2);line-height:1.65;font-weight:300}
+.pc-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.pc-tag{font-size:10px;padding:3px 10px;border-radius:100px;border:1px solid var(--border2);color:var(--text3);background:var(--bg3)}
+
+/* ── CARA KERJA ── */
+.steps-wrap{margin-top:48px}
+.step-item{display:grid;grid-template-columns:80px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--border);position:relative}
+.step-item:last-child{border-bottom:none}
+.step-left{display:flex;flex-direction:column;align-items:center;gap:10px}
+.step-circle{width:52px;height:52px;border-radius:50%;background:var(--white);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:18px;font-weight:400;color:var(--accent);flex-shrink:0;transition:all .3s}
+.step-item:hover .step-circle{background:var(--accent-dim);border-color:var(--accent)}
+.step-dur{font-size:11px;color:var(--text3);text-align:center;line-height:1.3}
+.step-right h3{font-size:17px;font-weight:500;color:var(--text);margin-bottom:6px;line-height:1.3}
+.step-right p{font-size:14px;color:var(--text2);line-height:1.7;font-weight:300;max-width:560px}
+.step-output{margin-top:10px;display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);background:var(--accent-dim);border:1px solid var(--accent-border);padding:4px 12px;border-radius:100px}
+.step-note{margin-top:28px;padding:18px 22px;background:var(--white);border:1px solid var(--border);border-radius:var(--r);font-size:13px;color:var(--text2);font-weight:300;line-height:1.6}
+.step-note strong{color:var(--text);font-weight:500}
+
+/* ── PERBANDINGAN ── */
+.vs-wrap{margin-top:48px;overflow-x:auto}
+.vs-table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;background:var(--white)}
+.vs-table th{padding:14px 20px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--bg3);border-bottom:1px solid var(--border);color:var(--text2)}
+.vs-table th:first-child{text-align:left}
+.vs-table th:not(:first-child){text-align:center}
+.vs-table th.hl{background:var(--accent-dim);color:var(--accent)}
+.vs-table td{padding:14px 20px;font-size:13px;border-bottom:1px solid var(--border);color:var(--text2)}
+.vs-table tr:last-child td{border-bottom:none}
+.vs-table td:first-child{color:var(--text);font-weight:500}
+.vs-table td:not(:first-child){text-align:center}
+.vs-table td.hl{color:var(--accent);font-weight:600}
+.vs-table tr:hover td{background:var(--bg3)}
+.check{color:var(--green);font-weight:700}
+.cross{color:var(--red);font-weight:700}
+.mid{color:var(--text3)}
+
+/* ── TESTIMONI ── */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}
+.testi-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r2);padding:28px;transition:border-color .3s,transform .35s cubic-bezier(.16,1,.3,1)}
+.testi-card:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:0 8px 28px rgba(68,54,39,.08)}
+.testi-stars{color:var(--accent);font-size:13px;letter-spacing:2px;margin-bottom:14px}
+.testi-q{font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:18px;font-style:italic;font-weight:300}
+.testi-who{display:flex;align-items:center;gap:10px}
+.testi-av{width:38px;height:38px;border-radius:50%;background:var(--accent-dim);border:1px solid var(--accent-border);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:14px;font-weight:500;color:var(--accent);flex-shrink:0}
+.testi-name{font-size:13px;font-weight:600;color:var(--text)}
+.testi-sub{font-size:11px;color:var(--text3)}
+.testi-result{margin-top:14px;padding-top:14px;border-top:1px solid var(--border);font-size:12px;color:var(--green);font-weight:500}
+
+/* ── FAQ ── */
+.faq-list{margin-top:44px;display:flex;flex-direction:column;gap:2px;max-width:700px}
+.faq-i{border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:border-color .25s;background:var(--white)}
+.faq-i.on{border-color:var(--border2)}
+.faq-q{padding:18px 22px;font-size:15px;font-weight:400;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;user-select:none;transition:background .2s;line-height:1.4}
+.faq-q:hover{background:var(--bg3)}
+.faq-ic{width:22px;height:22px;border-radius:50%;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s,border-color .2s,background .2s;font-size:10px;color:var(--text3)}
+.faq-i.on .faq-ic{transform:rotate(180deg);border-color:var(--accent);background:var(--accent-dim);color:var(--accent)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.16,1,.3,1),padding .38s;font-size:14px;color:var(--text2);line-height:1.8;padding:0 22px;font-weight:300;background:var(--bg3)}
+.faq-i.on .faq-a{max-height:280px;padding:16px 22px 20px}
+.faq-wa-row{margin-top:32px;padding:20px 24px;background:var(--white);border:1px solid var(--border);border-radius:var(--r);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.faq-wa-text{font-size:14px;color:var(--text2);font-weight:300}
+.faq-wa-text strong{color:var(--text);font-weight:500}
+
+/* ── CTA ── */
+.cta-sec{background:var(--text);padding:100px 0;text-align:center;position:relative;overflow:hidden}
+.cta-sec::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(217,131,36,.24) 0%,transparent 70%);pointer-events:none}
+.cta-sec .s-eye{justify-content:center;color:rgba(255,255,255,.5)}
+.cta-sec .s-eye::before{background:rgba(255,255,255,.3)}
+.cta-sec h2{font-family:var(--font-d);font-size:clamp(28px,4vw,48px);font-weight:400;letter-spacing:-.022em;line-height:1.1;color:#fff;margin-bottom:18px;max-width:560px;margin-left:auto;margin-right:auto}
+.cta-sec h2 em{font-style:italic;color:rgba(239,220,171,.92)}
+.cta-sec p{font-size:15px;color:rgba(255,255,255,.55);font-weight:300;line-height:1.75;max-width:440px;margin:0 auto 40px}
+.wa-btn{display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:15px 34px;border-radius:100px;font-size:15px;font-weight:600;text-decoration:none;transition:all .3s;font-family:var(--font-b)}
+.wa-btn:hover{background:#22c55e;transform:translateY(-3px);box-shadow:0 14px 36px rgba(37,211,102,.3)}
+.wa-btn svg{width:20px;height:20px;fill:#fff;flex-shrink:0}
+.cta-trust{margin-top:18px;font-size:12px;color:rgba(255,255,255,.3);display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.cta-trust span::before{content:'· '}
+.cta-trust span:first-child::before{content:''}
+
+/* ── FOOTER ── */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:36px 0}
+footer .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.f-logo{font-family:var(--font-d);font-size:17px;color:var(--text2)}
+.f-logo span{color:var(--accent)}
+.f-copy{font-size:12px;color:var(--text3)}
+
+/* ── DUKUNGAN ── */
+#dukungan .duk-grid{margin-top:44px;display:grid;grid-template-columns:1.15fr .85fr;gap:14px;align-items:start}
+
+/* ── FLOATING WA ── */
+.float-wa{position:fixed;left:14px;right:14px;bottom:calc(12px + env(safe-area-inset-bottom));display:none;align-items:center;gap:12px;background:linear-gradient(145deg,#6A4A30 0%,#4B3424 100%);border:1px solid rgba(239,220,171,.38);border-radius:999px;padding:10px 12px;z-index:130;box-shadow:0 14px 34px rgba(30,20,10,.34);text-decoration:none}
+.float-wa:hover{transform:translateY(-1px)}
+.float-wa-icon{position:relative;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:#1fa855;flex-shrink:0}
+.float-wa-icon::before,.float-wa-icon::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(31,168,85,.46);animation:waRadar 2.2s ease-out infinite}
+.float-wa-icon::after{animation-delay:1.1s}
+.float-wa-icon img{width:24px;height:24px;border-radius:50%;object-fit:cover;object-position:center;transform:scale(1.55);display:block;filter:contrast(1.06) saturate(1.05)}
+.float-wa-copy{display:flex;flex-direction:column;min-width:0}
+.float-wa-copy strong{font-size:22px;line-height:1.05;color:#fff;font-weight:600;letter-spacing:-.01em}
+.float-wa-copy span{font-size:16px;line-height:1.25;color:rgba(255,244,224,.8);font-weight:600;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.float-wa-arrow{margin-left:auto;width:40px;height:40px;border-radius:50%;background:var(--accent);display:grid;place-items:center;color:#fff;font-size:18px;font-weight:700;flex-shrink:0;box-shadow:0 6px 16px rgba(217,131,36,.42)}
+@keyframes waRadar{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.6);opacity:0}}
+
+/* ── ANIMATE ── */
+.an{opacity:0;transform:translateY(22px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
+.an.in{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  body{padding-bottom:96px}
+  .hero-inner{grid-template-columns:1fr;gap:32px}
+  .hero-img-wrap{order:2}
+  .nav-links{display:none}
+  .nav-burger{display:flex}
+  .float-wa{display:flex}
+  .prob-grid{grid-template-columns:1fr}
+  .sol-grid{grid-template-columns:1fr 1fr}
+  .porto-main{grid-template-columns:1fr}
+  .pc.big{grid-column:auto}
+  .testi-grid{grid-template-columns:1fr}
+  .vs-table th,
+  .vs-table td{padding:12px 14px;font-size:12px}
+  .sec{padding:68px 0}
+  .hero{padding:80px 0 0}
+  #dukungan .duk-grid{grid-template-columns:1fr}
+  #masalah h2.sh{font-size:clamp(28px,7.2vw,42px)}
+  #masalah .sp{font-size:17px}
+  .prob-card{padding:28px}
+  .prob-n{font-size:18px}
+  .prob-card h3{font-size:25px}
+  .prob-card p{font-size:18px}
+}
+@media(max-width:560px){
+  body{padding-bottom:104px}
+  .sol-grid{grid-template-columns:1fr}
+  .step-item{grid-template-columns:60px 1fr;gap:16px}
+  .hero-stat-bar{padding:12px 14px}
+  .hero-stat-num{font-size:15px}
+  .hero-stat-label{font-size:10px}
+  .hero h1{font-size:30px}
+  .float-wa{left:10px;right:10px;padding:9px 10px;gap:10px}
+  .float-wa-icon{width:42px;height:42px}
+  .float-wa-copy strong{font-size:17px}
+  .float-wa-copy span{font-size:11px}
+  .float-wa-arrow{width:34px;height:34px;font-size:16px}
+  #masalah .sp{font-size:16px}
+  .prob-card{padding:22px}
+  .prob-n{font-size:15px}
+  .prob-card h3{font-size:22px}
+  .prob-card p{font-size:17px;line-height:1.55}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="container">
+    <a href="#" class="nav-logo">Good<span>.</span>code</a>
+    <div class="nav-links">
+      <a href="#masalah">Masalah</a>
+      <a href="#porto">Portofolio</a>
+      <a href="#dukungan">Dukungan</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://wa.me/6285608537600?text=Halo%20Good.code%2C%20saya%20ingin%20konsultasi%20soal%20website%20untuk%20bisnis%20saya" class="nav-cta" target="_blank">Konsultasi Gratis</a>
+    </div>
+    <button class="nav-burger" onclick="toggleNav()" aria-label="Menu">☰</button>
+  </div>
+</nav>
+<div class="mob-nav" id="mobNav">
+  <a href="#masalah" onclick="toggleNav()">Masalah</a>
+  <a href="#porto" onclick="toggleNav()">Portofolio</a>
+  <a href="#dukungan" onclick="toggleNav()">Dukungan</a>
+  <a href="#faq" onclick="toggleNav()">FAQ</a>
+  <a href="https://wa.me/6285608537600?text=Halo%20Good.code%2C%20saya%20ingin%20konsultasi%20soal%20website%20untuk%20bisnis%20saya" class="mob-cta" target="_blank">Konsultasi Gratis</a>
+</div>
+
+<!-- § 01 · HERO -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-label an">Spesialis migrasi marketplace ke website sendiri</div>
+        <h1 class="an d1">Pindah dari marketplace ke website sendiri,<br><em>biar brand, data, dan margin tetap milikmu.</em></h1>
+        <p class="hero-sub an d2">Saya bantu pemilik toko online migrasi dari Shopee, Tokopedia, dan platform sejenis ke website ecommerce milik sendiri. Lengkap dengan domain brand kamu, checkout otomatis, ongkir terintegrasi, dan alur belanja yang siap dipakai untuk scale jangka panjang.</p>
+        <div class="hero-actions an d3">
+          <a href="https://wa.me/6285608537600?text=Halo%20Good.code%2C%20saya%20ingin%20konsultasi%20soal%20website%20untuk%20bisnis%20saya" class="btn-main" target="_blank">💬 Mulai Konsultasi Gratis</a>
+          <a href="#porto" class="btn-ghost">Lihat Portofolio →</a>
+        </div>
+        <div class="hero-trust an d4">
+          <span>Balas &lt; 2 jam</span>
+          <span>Tanpa komitmen</span>
+          <span>Harga per proyek</span>
+        </div>
+      </div>
+      <div class="hero-img-wrap an d2">
+        <img src="hero-image.png" alt="Pemilik toko online migrasi dari marketplace ke website sendiri">
+        <div class="hero-stat-bar">
+          <div class="hero-stat-item">
+            <div class="hero-stat-num">Rp 0</div>
+            <div class="hero-stat-label">Komisi per<br>Transaksi</div>
+          </div>
+          <div class="hero-stat-item">
+            <div class="hero-stat-num">100%</div>
+            <div class="hero-stat-label">Data Customer<br>Milikmu</div>
+          </div>
+          <div class="hero-stat-item">
+            <div class="hero-stat-num">2–4 Minggu</div>
+            <div class="hero-stat-label">Dari Brief<br>ke Live</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-wrap">
+    <span class="tick">Ecommerce Custom</span><span class="tick-sep">✦</span>
+    <span class="tick">Ongkir Otomatis</span><span class="tick-sep">✦</span>
+    <span class="tick">Payment Gateway</span><span class="tick-sep">✦</span>
+    <span class="tick">Dashboard Admin</span><span class="tick-sep">✦</span>
+    <span class="tick">Kedaulatan Digital UMKM</span><span class="tick-sep">✦</span>
+    <span class="tick">30+ Kurir Terintegrasi</span><span class="tick-sep">✦</span>
+    <span class="tick">Tracking Pengiriman</span><span class="tick-sep">✦</span>
+    <span class="tick">Ecommerce Custom</span><span class="tick-sep">✦</span>
+    <span class="tick">Ongkir Otomatis</span><span class="tick-sep">✦</span>
+    <span class="tick">Payment Gateway</span><span class="tick-sep">✦</span>
+    <span class="tick">Dashboard Admin</span><span class="tick-sep">✦</span>
+    <span class="tick">Kedaulatan Digital UMKM</span><span class="tick-sep">✦</span>
+    <span class="tick">30+ Kurir Terintegrasi</span><span class="tick-sep">✦</span>
+    <span class="tick">Tracking Pengiriman</span><span class="tick-sep">✦</span>
+  </div>
+</div>
+
+<!-- § 02 · MASALAH -->
+<section class="sec sec-white" id="masalah">
+  <div class="container">
+    <div class="sec-num an">§ 02 · Masalah</div>
+    <div class="s-eye an">Kenapa brand kamu belum tumbuh</div>
+    <h2 class="sh an d1">Order masuk, tapi untung<br>kok rasanya <em>segitu-gitu aja?</em></h2>
+    <p class="sp an d2">Bukan produknya yang salah. Ini empat masalah yang paling sering saya temui saat brand masih bergantung penuh pada marketplace.</p>
+    <div class="prob-grid">
+      <div class="prob-card an">
+        <div class="prob-n">01 ·</div>
+        <h3>Platform yang harusnya bantu, <span class="prob-hot prob-pulse">malah makan duluan</span></h3>
+        <p>Setiap transaksi <span class="prob-hot">dipotong komisi</span>. <span class="prob-key">Iklan makin mahal</span>. Flash sale ditekan terus. Makin keras kamu kerja, <span class="prob-hot">makin besar yang diambil platform</span>.</p>
+      </div>
+      <div class="prob-card an d1">
+        <div class="prob-n">02 ·</div>
+        <h3>Brand kamu <span class="prob-hot">tidak terlihat</span>, hanya produknya</h3>
+        <p>Di marketplace semua halaman terlihat sama. Pembeli <span class="prob-key">bandingkan harga</span>, <span class="prob-hot">bukan nilai brand</span>. Susah bangun loyalitas kalau identitas kamu tenggelam di antara ribuan toko.</p>
+      </div>
+      <div class="prob-card an d2">
+        <div class="prob-n">03 ·</div>
+        <h3>Kamu <span class="prob-hot">tidak kenal siapa yang beli</span> produkmu</h3>
+        <p>Nama, nomor, histori pembelian — <span class="prob-hot">semua dikunci rapat</span> oleh platform. Mau follow up? <span class="prob-key">Tidak bisa</span>. Mau broadcast promo? <span class="prob-key">Tidak bisa</span>.</p>
+      </div>
+      <div class="prob-card an d3">
+        <div class="prob-n">04 ·</div>
+        <h3>Semua effort kamu <span class="prob-hot">membesarkan platform</span>, <span class="prob-key">bukan brand</span></h3>
+        <p>Konten tiap hari, followers IG ribuan — tapi semua traffic akhirnya diarahkan ke Shopee. Kamu yang capek, <span class="prob-hot prob-pulse">platform yang panen</span>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- § 03 · SOLUSI -->
+<section class="sec" id="solusi">
+  <div class="container">
+    <div class="sec-num an">§ 03 · Solusi</div>
+    <div class="s-eye an">Setelah migrasi ke website sendiri</div>
+    <h2 class="sh an d1">Satu website.<br><em>Semua kendali di tangan kamu.</em></h2>
+    <p class="sp an d2">Enam hal ini langsung aktif sejak hari pertama website kamu live setelah migrasi. Semua sudah termasuk dalam pengerjaan, tanpa biaya fitur tersembunyi.</p>
+    <div class="sol-grid an d1">
+      <div class="sol-card">
+        <div class="sol-arrow">→ yourbrand.com</div>
+        <h3>Alamat toko yang benar-benar milikmu</h3>
+        <p>Bukan username di platform orang lain. Domain atas nama kamu, bisa dibawa ke mana saja, tidak bisa diambil siapapun.</p>
+      </div>
+      <div class="sol-card">
+        <div class="sol-arrow">→ Tampilan sesuai karakter brand</div>
+        <h3>Desain yang mencerminkan produkmu</h3>
+        <p>Saya rancang tampilannya sesuai tone brand kamu — bukan template massal yang dipakai ribuan toko lain di internet.</p>
+      </div>
+      <div class="sol-card">
+        <div class="sol-arrow">→ Transfer, QRIS, semua e-wallet</div>
+        <h3>Pembeli bisa langsung bayar, tanpa drama</h3>
+        <p>Tidak ada lagi "transfer dulu ya, nanti saya konfirmasi." Semua metode pembayaran populer Indonesia sudah terintegrasi dari awal.</p>
+      </div>
+      <div class="sol-card">
+        <div class="sol-arrow">→ Data masuk ke dashboard kamu</div>
+        <h3>Kenali siapa yang beli produkmu</h3>
+        <p>Setiap pembeli meninggalkan jejaknya di sistem kamu. Kamu bisa follow up, broadcast promo, bangun repeat order kapan pun.</p>
+      </div>
+      <div class="sol-card">
+        <div class="sol-arrow">→ 30+ kurir, hitung sendiri</div>
+        <h3>Ongkir transparan sejak awal checkout</h3>
+        <p>Biaya kirim muncul otomatis sebelum pembeli bayar. Tidak ada yang kaget, tidak ada yang batal di last minute karena ongkir.</p>
+      </div>
+      <div class="sol-card">
+        <div class="sol-arrow">→ Tanpa sentuh kode sama sekali</div>
+        <h3>Kamu yang kelola, bukan saya terus</h3>
+        <p>Dashboard admin dirancang untuk non-teknis. Tambah produk, proses order, cetak resi — kamu bisa lakukan sendiri setelah satu sesi onboarding.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- § 04 · PORTOFOLIO -->
+<section class="sec sec-white" id="porto">
+  <div class="container">
+    <div class="sec-num an">§ 04 · Portofolio Nyata</div>
+    <div class="s-eye an">Sudah jalan, bisa kamu lihat sendiri</div>
+    <h2 class="sh an d1">Ini bukan mockup.<br><em>Website-nya nyata.</em></h2>
+    <p class="sp an d2">Bisa dibuka, bisa dirasakan pengalaman belanjaannya langsung dari HP kamu.</p>
+    <div class="porto-main">
+      <div class="pc big an d1">
+        <div class="pc-screen">
+          <div class="pc-mock">
+            <div class="pc-bar">
+              <div class="pc-dot r"></div><div class="pc-dot y"></div><div class="pc-dot g"></div>
+              <div class="pc-url"></div>
+            </div>
+            <div class="pc-body">
+              <div class="pc-hero-m">
+                <div class="pc-lines"><div class="pc-l w60"></div><div class="pc-l w40"></div></div>
+                <div class="pc-cbtn"></div>
+              </div>
+              <div class="pc-cards">
+                <div class="pc-ci"><div class="pc-ci-img" style="background:linear-gradient(135deg,#d4c4b0,#a8906e)"></div><div class="pc-ci-bd"><div class="pc-ci-l"></div><div class="pc-ci-p"></div></div></div>
+                <div class="pc-ci"><div class="pc-ci-img" style="background:linear-gradient(135deg,#b0c4d4,#6e90a8)"></div><div class="pc-ci-bd"><div class="pc-ci-l"></div><div class="pc-ci-p"></div></div></div>
+                <div class="pc-ci"><div class="pc-ci-img" style="background:linear-gradient(135deg,#b0d4b8,#6ea876)"></div><div class="pc-ci-bd"><div class="pc-ci-l"></div><div class="pc-ci-p"></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pc-info">
+          <div class="pc-label">Proyek Aktif · Fashion Wanita · Semarang</div>
+          <div class="pc-name">Piamour Studios</div>
+          <div class="pc-desc">Sebelumnya hanya mengandalkan Shopee. Sekarang punya toko sendiri — pembeli checkout langsung, ongkir otomatis via Biteship, dan semua data transaksi sepenuhnya ada di tangan mereka.</div>
+          <div class="pc-tags">
+            <span class="pc-tag">Next.js</span>
+            <span class="pc-tag">Supabase</span>
+            <span class="pc-tag">Biteship</span>
+            <span class="pc-tag">Vercel</span>
+            <span class="pc-tag">Full Ecommerce</span>
+          </div>
+        </div>
+      </div>
+      <div class="pc an d1">
+        <div class="pc-screen" style="height:160px">
+          <div class="pc-mock">
+            <div class="pc-bar"><div class="pc-dot r"></div><div class="pc-dot y"></div><div class="pc-dot g"></div><div class="pc-url"></div></div>
+            <div class="pc-body"><div style="display:flex;flex-direction:column;gap:7px"><div style="height:32px;background:var(--bg);border-radius:5px"></div><div style="height:10px;background:var(--border);border-radius:2px;width:65%"></div><div style="height:10px;background:var(--border);border-radius:2px;width:45%"></div></div></div>
+          </div>
+        </div>
+        <div class="pc-info">
+          <div class="pc-label">Demo · Batik Modern · Yogyakarta</div>
+          <div class="pc-name">Aruna Cloth</div>
+          <div class="pc-desc">Katalog produk yang rapi dan cepat diakses dari HP. Dirancang untuk pembeli yang browse sambil rebahan.</div>
+          <div class="pc-tags"><span class="pc-tag">Landing Page</span><span class="pc-tag">Katalog</span></div>
+        </div>
+      </div>
+      <div class="pc an d2">
+        <div class="pc-screen" style="height:160px">
+          <div class="pc-mock">
+            <div class="pc-bar"><div class="pc-dot r"></div><div class="pc-dot y"></div><div class="pc-dot g"></div><div class="pc-url"></div></div>
+            <div class="pc-body"><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><div style="height:56px;background:var(--bg);border-radius:5px"></div><div style="height:56px;background:var(--bg);border-radius:5px"></div></div></div>
+          </div>
+        </div>
+        <div class="pc-info">
+          <div class="pc-label">Demo · Aksesoris Handmade · Bandung</div>
+          <div class="pc-name">Nara Studio</div>
+          <div class="pc-desc">Toko online dengan wishlist dan akun pelanggan — biar pembeli yang belum siap beli sekarang, tidak pergi selamanya.</div>
+          <div class="pc-tags"><span class="pc-tag">Ecommerce</span><span class="pc-tag">Wishlist</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- § 05 · CARA KERJA -->
+<section class="sec" id="proses">
+  <div class="container">
+    <div class="sec-num an">§ 05 · Alur Kerja</div>
+    <div class="s-eye an">Cara kerja</div>
+    <h2 class="sh an d1">Dari ngobrol di WhatsApp<br>sampai toko live — <em>empat langkah.</em></h2>
+    <p class="sp an d2">Tidak ada proses panjang yang membingungkan. Setiap langkah ada output yang jelas, dan kamu tahu terus sedang di tahap mana.</p>
+    <div class="steps-wrap an d1">
+      <div class="step-item">
+        <div class="step-left">
+          <div class="step-circle">1</div>
+          <div class="step-dur">± 30 menit<br>01/04</div>
+        </div>
+        <div class="step-right">
+          <h3>Ngobrol dulu via WhatsApp</h3>
+          <p>Ceritakan bisnis dan kebutuhanmu. Tidak ada form panjang, tidak ada presentasi sales. Saya dengarkan, saya catat, kita tentukan arah bersama.</p>
+          <div class="step-output">✓ Kebutuhan tercatat, paket ditentukan</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-left">
+          <div class="step-circle">2</div>
+          <div class="step-dur">3–5 hari kerja<br>02/04</div>
+        </div>
+        <div class="step-right">
+          <h3>Saya siapkan konsep & rancangan awal</h3>
+          <p>Berdasarkan brief, saya rancang konsep tampilan dan struktur toko. Kamu review, kasih masukan, kita sepakati arahnya sebelum mulai bangun.</p>
+          <div class="step-output">✓ Mockup dikirim untuk review</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-left">
+          <div class="step-circle">3</div>
+          <div class="step-dur">2–3 minggu<br>03/04</div>
+        </div>
+        <div class="step-right">
+          <h3>Website dibangun</h3>
+          <p>Dari katalog, checkout, hingga dashboard admin — semua dikerjakan. Kamu bisa pantau progress dan kasih feedback di setiap tahap.</p>
+          <div class="step-output">✓ Website siap untuk review final</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-left">
+          <div class="step-circle">4</div>
+          <div class="step-dur">3–5 hari kerja<br>04/04</div>
+        </div>
+        <div class="step-right">
+          <h3>Live, dan kamu siap pegang sendiri</h3>
+          <p>Revisi terakhir, testing menyeluruh, lalu website live di domain kamu. Saya temenin satu sesi onboarding sampai kamu nyaman kelola sendiri.</p>
+          <div class="step-output">✓ Toko online live & kamu bisa mandiri</div>
+        </div>
+      </div>
+    </div>
+    <div class="step-note an">
+      <strong>Rata-rata 3–4 minggu.</strong> Dikerjakan langsung oleh saya — tidak di-outsource, tidak ada pihak ketiga, tidak ada biaya yang muncul tiba-tiba.
+    </div>
+  </div>
+</section>
+
+<!-- § 06 · DUKUNGAN -->
+<section class="sec sec-white" id="dukungan">
+  <div class="container">
+    <div class="sec-num an">§ 06 · Dukungan Setelah Live</div>
+    <div class="s-eye an">Post-launch support</div>
+    <h2 class="sh an d1">Website sudah live bukan berarti selesai.<br><em>Kamu tetap punya partner selama 12 bulan.</em></h2>
+    <p class="sp an d2">Setelah website online, saya tetap standby untuk bantu hal-hal operasional harian: update banner momen campaign seperti Ramadhan, penyesuaian konten ringan, troubleshooting, dan konsultasi strategi teknis agar tokomu tetap rapi, cepat, dan siap jualan.</p>
+
+    <div class="duk-grid an d1">
+      <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r2);padding:28px 24px">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:var(--accent-dim);border:1px solid var(--accent-border);color:var(--accent2);font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:5px 12px;border-radius:100px;margin-bottom:16px">12 Bulan Pendampingan</div>
+        <p style="font-size:19px;line-height:1.75;color:var(--text);font-weight:400;margin-bottom:18px">Tujuan saya sederhana: <strong style="color:var(--accent2);font-weight:600">kamu tenang menjalankan bisnis</strong>, tanpa bingung saat butuh perubahan cepat di toko online.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
+          <li style="display:flex;align-items:flex-start;gap:9px;font-size:14px;color:var(--text2)"><span style="color:var(--green);font-weight:700;flex-shrink:0">✓</span>Update konten visual sesuai momen campaign: banner Ramadhan, promo gajian, Harbolnas, dan event musiman lain.</li>
+          <li style="display:flex;align-items:flex-start;gap:9px;font-size:14px;color:var(--text2)"><span style="color:var(--green);font-weight:700;flex-shrink:0">✓</span>Penyesuaian konten ringan: copy, gambar, headline, susunan section, dan elemen promosi.</li>
+          <li style="display:flex;align-items:flex-start;gap:9px;font-size:14px;color:var(--text2)"><span style="color:var(--green);font-weight:700;flex-shrink:0">✓</span>Troubleshooting teknis jika ada kendala operasional agar website tetap stabil.</li>
+          <li style="display:flex;align-items:flex-start;gap:9px;font-size:14px;color:var(--text2)"><span style="color:var(--green);font-weight:700;flex-shrink:0">✓</span>Konsultasi via WhatsApp untuk diskusi kebutuhan campaign, prioritas update, atau evaluasi alur belanja.</li>
+          <li style="display:flex;align-items:flex-start;gap:9px;font-size:14px;color:var(--text2)"><span style="color:var(--green);font-weight:700;flex-shrink:0">✓</span>Support tetap berjalan selama tidak ada penambahan fitur baru atau perubahan scope besar.</li>
+        </ul>
+      </div>
+
+      <div style="background:linear-gradient(165deg,#FFF2D8 0%,#F8E3B8 100%);border:1px solid var(--accent-border);border-radius:var(--r2);padding:24px 22px">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--accent2);margin-bottom:12px">Komitmen Support</div>
+        <div style="font-family:var(--font-d);font-size:42px;line-height:1;color:var(--text);margin-bottom:6px">12 bulan</div>
+        <div style="font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:18px">Pendampingan setelah website live, fokus ke operasional dan optimasi ringan.</div>
+        <div style="height:1px;background:rgba(68,54,39,.14);margin-bottom:16px"></div>
+        <p style="font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:16px"><strong style="color:var(--text);font-weight:600">Catatan:</strong> Jika ada kebutuhan fitur baru, integrasi baru, atau perubahan alur besar, akan saya ajukan sebagai scope pengembangan lanjutan secara terpisah dan transparan.</p>
+        <a href="https://wa.me/6285608537600?text=Halo%20Good.code%2C%20saya%20ingin%20diskusi%20dukungan%2012%20bulan%20setelah%20website%20live" style="display:block;text-align:center;padding:12px;border-radius:100px;font-size:13px;font-weight:600;text-decoration:none;background:var(--accent);color:#fff;transition:all .2s;font-family:var(--font-b)" target="_blank" onmouseover="this.style.background='var(--accent2)'" onmouseout="this.style.background='var(--accent)'">Diskusi Dukungan 12 Bulan</a>
+      </div>
+    </div>
+
+    <div style="margin-top:20px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:18px 22px" class="an">
+      <p style="font-size:13px;color:var(--text2);font-weight:300;line-height:1.7"><strong style="color:var(--text);font-weight:600">Intinya:</strong> saya tetap ada setelah launching. Selama permintaan masih dalam ranah support operasional dan tidak menambah fitur baru, kamu bisa konsultasi kapan pun dan kita kerjakan bersama dengan ritme yang jelas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- § 07 · PERBANDINGAN -->
+<section class="sec" id="perbandingan">
+  <div class="container">
+    <div class="sec-num an">§ 07 · Perbandingan</div>
+    <div class="s-eye an">Kenapa website sendiri menang jangka panjang</div>
+    <h2 class="sh an d1">Dalam 2–3 tahun,<br><em>website sendiri selalu lebih masuk akal.</em></h2>
+    <p class="sp an d2">Marketplace bagus untuk mulai, tapi bukan tempat terbaik untuk tumbuh jangka panjang. Website sendiri memberi kontrol penuh atas brand, data customer, dan margin.</p>
+    <div class="vs-wrap an d1">
+      <table class="vs-table">
+        <thead>
+          <tr>
+            <th>Kriteria</th>
+            <th class="hl">Good.code</th>
+            <th>Marketplace<br><span style="font-size:10px;font-weight:500;letter-spacing:.04em;text-transform:none;color:var(--text3)">(Shopee/Tokopedia)</span></th>
+            <th>Wordpress / Shopify</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Biaya per transaksi</td><td class="hl"><span class="check">Gratis</span></td><td><span class="cross">5–12% dipotong</span></td><td class="mid">Gratis</td></tr>
+          <tr><td>Domain atas nama sendiri</td><td class="hl"><span class="check">✓ Termasuk</span></td><td><span class="cross">✗ Tidak ada</span></td><td class="mid">Biaya tambahan</td></tr>
+          <tr><td>Data pembeli milik kamu</td><td class="hl"><span class="check">100% milikmu</span></td><td><span class="cross">Dikunci platform</span></td><td class="mid">Milikmu</td></tr>
+          <tr><td>Perlu skill teknis</td><td class="hl"><span class="check">Tidak, saya setup</span></td><td><span class="check">Tidak</span></td><td><span class="cross">Lumayan tinggi</span></td></tr>
+          <tr><td>Support bahasa Indonesia</td><td class="hl"><span class="check">Chat WA langsung</span></td><td class="mid">Tiket & bot</td><td><span class="cross">Forum bahasa Inggris</span></td></tr>
+          <tr><td>Ongkir otomatis 30+ kurir</td><td class="hl"><span class="check">✓ Termasuk</span></td><td class="mid">Bawaan platform</td><td class="mid">Perlu setup sendiri</td></tr>
+          <tr><td>Struktur biaya</td><td class="hl"><span class="check">Jelas dari awal</span></td><td><span class="cross">Komisi terus jalan</span></td><td class="mid">Langganan + add-on</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- § 08 · TESTIMONI -->
+<section class="sec sec-white" id="testimoni">
+  <div class="container">
+    <div class="sec-num an">§ 08 · Testimoni</div>
+    <div class="s-eye an">Kata mereka</div>
+    <h2 class="sh an d1">Bukan saya yang bilang.<br><em>Ini dari yang sudah merasakan.</em></h2>
+    <p class="sp an d2">Cerita langsung dari brand yang sudah pindah dari ketergantungan marketplace dan sekarang mengelola toko online mereka sendiri.</p>
+    <div class="testi-grid">
+      <div class="testi-card an">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-q">"Dulu tiap bulan deg-degan lihat potongan komisi Shopee. Sekarang semua transaksi masuk penuh, data pembeli ada di tangan saya, dan saya bisa follow up sendiri kapan pun. Rasanya beda banget."</p>
+        <div class="testi-who">
+          <div class="testi-av">P</div>
+          <div><div class="testi-name">Piamour Studios</div><div class="testi-sub">Fashion wanita · Semarang</div></div>
+        </div>
+        <div class="testi-result">Checkout langsung tanpa perantara platform</div>
+      </div>
+      <div class="testi-card an d1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-q">"Yang saya takutin dulu adalah ribet ngurusnya. Ternyata setelah onboarding, saya bisa tambah produk dan proses order sendiri. Dashboard-nya beneran mudah dipakai."</p>
+        <div class="testi-who">
+          <div class="testi-av">A</div>
+          <div><div class="testi-name">Aruna Cloth</div><div class="testi-sub">Batik modern · Yogyakarta</div></div>
+        </div>
+        <div class="testi-result">Kelola toko mandiri tanpa bantuan teknis</div>
+      </div>
+      <div class="testi-card an d2">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-q">"Tiga minggu dari pertama ngobrol sampai website live. Cepat, komunikasinya enak, dan hasilnya jauh di atas ekspektasi saya."</p>
+        <div class="testi-who">
+          <div class="testi-av">N</div>
+          <div><div class="testi-name">Nara Studio</div><div class="testi-sub">Aksesoris handmade · Bandung</div></div>
+        </div>
+        <div class="testi-result">Live dalam 3 minggu dari konsultasi pertama</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- § 09 · FAQ -->
+<section class="sec" id="faq">
+  <div class="container">
+    <div class="sec-num an">§ 09 · Pertanyaan</div>
+    <div class="s-eye an">FAQ</div>
+    <h2 class="sh an d1">Hal yang paling sering<br>ditanyakan <em>sebelum mulai.</em></h2>
+    <div class="faq-list an d2">
+      <div class="faq-i"><div class="faq-q" onclick="toggleFaq(this)">Berapa lama pengerjaan website saya?<div class="faq-ic">▾</div></div><div class="faq-a">Rata-rata 2–4 minggu dari konsultasi pertama sampai live — tergantung jumlah produk dan seberapa kustom tampilannya. Mockup dikirim di minggu pertama, pengerjaan di minggu kedua dan ketiga, review final sebelum live. Timeline pastinya saya kirim setelah ngobrol dan tahu kebutuhan kamu.</div></div>
+      <div class="faq-i"><div class="faq-q" onclick="toggleFaq(this)">Apakah saya perlu paham teknis?<div class="faq-ic">▾</div></div><div class="faq-a">Tidak perlu sama sekali. Domain, database, payment gateway — semua saya yang urus. Kamu hanya perlu approve tampilan, kirim foto produk, dan ikut satu sesi onboarding singkat untuk belajar pakai dashboard admin.</div></div>
+      <div class="faq-i"><div class="faq-q" onclick="toggleFaq(this)">Bisa tetap jalan bersamaan dengan Shopee?<div class="faq-ic">▾</div></div><div class="faq-a">Bisa, dan justru itu yang saya rekomendasikan di awal. Tidak perlu tutup toko Shopee dulu. Banyak brand mulai keduanya paralel, lalu perlahan mengalihkan fokus ke website sendiri saat sudah terasa manfaatnya.</div></div>
+      <div class="faq-i"><div class="faq-q" onclick="toggleFaq(this)">Metode pembayaran apa saja yang bisa dipakai pembeli?<div class="faq-ic">▾</div></div><div class="faq-a">Transfer bank, QRIS, dan e-wallet populer Indonesia — semua sudah terintegrasi lewat payment gateway. Tidak ada setup tambahan dari pihak kamu.</div></div>
+      <div class="faq-i"><div class="faq-q" onclick="toggleFaq(this)">Kalau nanti mau tambah fitur, bisa?<div class="faq-ic">▾</div></div><div class="faq-a">Bisa didiskusikan kapan saja. Beberapa hal bisa ditambah tanpa biaya ekstra dalam periode support, ada yang perlu biaya tambahan untuk fitur yang lebih besar. Semuanya transparan dan disepakati sebelum dikerjakan.</div></div>
+      <div class="faq-i"><div class="faq-q" onclick="toggleFaq(this)">Apakah ada biaya yang muncul setelah website live?<div class="faq-ic">▾</div></div><div class="faq-a">Dari sisi jasa pembuatan, tidak ada. Yang perlu kamu siapkan adalah biaya operasional bulanan sekitar Rp 860rb untuk hosting, database, dan integrasi kurir — dibayar langsung ke masing-masing vendor, bukan ke saya.</div></div>
+    </div>
+    <div class="faq-wa-row an">
+      <div class="faq-wa-text"><strong>Masih ragu?</strong> Tanya langsung via WhatsApp — biasanya saya balas dalam 2 jam di jam kerja. Gratis, tanpa paksaan.</div>
+      <a href="https://wa.me/6285608537600?text=Halo%20Good.code%2C%20saya%20punya%20pertanyaan%20tentang%20jasa%20website%20kamu" class="btn-main" target="_blank" style="white-space:nowrap">💬 Tanya via WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- § 10 · CTA FINAL -->
+<section class="cta-sec">
+  <div class="container">
+    <div class="s-eye an">§ 10 · Mulai Sekarang</div>
+    <h2 class="an d1">Toko online kamu<br><em>bisa live bulan ini.</em></h2>
+    <p class="an d2">Konsultasi gratis, tidak ada kewajiban apapun. Ceritakan bisnismu — saya bantu tentukan apa yang paling masuk akal untuk kondisi kamu sekarang.</p>
+    <div class="an d3">
+      <a href="https://wa.me/6285608537600?text=Halo%20Good.code%2C%20saya%20mau%20konsultasi%20soal%20website%20untuk%20bisnis%20saya" class="wa-btn" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Mulai Konsultasi via WhatsApp
+      </a>
+      <div class="cta-trust">
+        <span>Good.code · Semarang</span>
+        <span>Balas &lt; 2 jam</span>
+        <span>Tanpa komitmen</span>
+        <span>Konsultasi 100% gratis</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a href="https://wa.me/6285608537600?text=Halo%20Good.code%2C%20saya%20mau%20konsultasi%20soal%20website%20untuk%20bisnis%20saya" class="float-wa" target="_blank" aria-label="Konsultasi gratis via WhatsApp">
+  <span class="float-wa-icon">
+    <img src="wa-icon.png" alt="WhatsApp">
+  </span>
+  <span class="float-wa-copy">
+    <strong>Konsultasi Gratis</strong>
+    <span>Balas &lt; 2 jam · Tanpa komitmen</span>
+  </span>
+  <span class="float-wa-arrow">→</span>
+</a>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="f-logo">Good<span>.</span>code</div>
+    <div class="f-copy">© 2025 Good.code · Spesialis Ecommerce & Migrasi Marketplace · Semarang, Indonesia</div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), {passive:true});
+
+// Mobile nav
+function toggleNav(){ document.getElementById('mobNav').classList.toggle('open'); }
+
+// FAQ
+function toggleFaq(el){ el.parentElement.classList.toggle('on'); }
+
+// Scroll reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
+}, {threshold:0.07});
+document.querySelectorAll('.an').forEach(el => io.observe(el));
+
+// Hero instant
+document.querySelectorAll('.hero .an').forEach((el,i) => setTimeout(() => el.classList.add('in'), 60 + i*120));
+</script>
+</body>
+</html>

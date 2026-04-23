@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/goodcode-landing-v3.html"
+    }
+  ]
+}
