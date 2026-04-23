@@ -1,20 +1,74 @@
 "use client";
 
-import { WhatsAppIcon } from "@/components/icons";
+import Image from "next/image";
 
-const WHATSAPP_URL =
-  "https://api.whatsapp.com/send?phone=628889888158&text=Hi%20GoodCode!%20I%20need%20a%20professional%20website%20that%20fits%20my%20brand%20and%20I%20am%20interested%20in%20the%20services%20you%20offer.%20Can%20you%20help%3F";
+const WA = "https://wa.me/6285608537600?text=Halo%20Good.code%2C%20saya%20ingin%20konsultasi%20soal%20website%20untuk%20bisnis%20saya";
 
 export function WhatsAppFAB() {
   return (
     <a
-      href={WHATSAPP_URL}
+      href={WA}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-8 right-8 z-[99999] md:hidden rounded-full p-2 border border-white/45 bg-white/35 backdrop-blur-md text-[#2F5F98] shadow-[0_12px_30px_rgba(31,78,136,0.22)] hover:bg-white/50 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
-      aria-label="Chat on WhatsApp"
+      className="flex md:hidden"
+      style={{
+        position: "fixed",
+        left: 14,
+        right: 14,
+        bottom: "calc(12px + env(safe-area-inset-bottom))",
+        alignItems: "center",
+        gap: 12,
+        background: "linear-gradient(145deg,#6A4A30 0%,#4B3424 100%)",
+        border: "1px solid rgba(239,220,171,0.38)",
+        borderRadius: 999,
+        padding: "10px 12px",
+        zIndex: 130,
+        boxShadow: "0 14px 34px rgba(30,20,10,0.34)",
+        textDecoration: "none",
+      }}
+      aria-label="Konsultasi via WhatsApp"
     >
-      <WhatsAppIcon className="w-6 h-6" />
+      <span
+        style={{
+          position: "relative",
+          width: 42,
+          height: 42,
+          borderRadius: "50%",
+          display: "grid",
+          placeItems: "center",
+          background: "#1fa855",
+          flexShrink: 0,
+          overflow: "hidden",
+        }}
+      >
+        <Image src="/images/wa-icon.png" alt="" width={24} height={24} aria-hidden style={{ objectFit: "cover", transform: "scale(1.55)", display: "block" }} />
+      </span>
+
+      <span style={{ display: "flex", flexDirection: "column", minWidth: 0 }}>
+        <strong style={{ fontSize: 17, lineHeight: 1.05, color: "#fff", fontWeight: 600, letterSpacing: "-0.01em" }}>Konsultasi Gratis</strong>
+        <span style={{ fontSize: 11, lineHeight: 1.25, color: "rgba(255,244,224,0.8)", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", whiteSpace: "nowrap" }}>
+          Balas &lt; 2 jam · Tanpa komitmen
+        </span>
+      </span>
+
+      <span
+        style={{
+          marginLeft: "auto",
+          width: 34,
+          height: 34,
+          borderRadius: "50%",
+          background: "#D98324",
+          display: "grid",
+          placeItems: "center",
+          color: "#fff",
+          fontSize: 16,
+          fontWeight: 700,
+          flexShrink: 0,
+          boxShadow: "0 6px 16px rgba(217,131,36,0.42)",
+        }}
+      >
+        →
+      </span>
     </a>
   );
 }

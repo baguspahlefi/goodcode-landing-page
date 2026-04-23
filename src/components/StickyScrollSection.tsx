@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
+const BRIEF = "https://astakona.sg.larksuite.com/share/base/form/shrlgDF86d3TLy5irv1GLxa5AQb";
+
 export function StickyScrollSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
@@ -28,48 +30,25 @@ export function StickyScrollSection() {
   const p3 = Math.min(1, Math.max(0, (progress - 0.66) / 0.34));
 
   const card1Style: React.CSSProperties = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    width: "100%",
-    height: "100%",
-    borderRadius: "8px",
-    overflow: "hidden",
-    opacity: p1,
+    position: "absolute", top: "50%", left: "50%", width: "100%", height: "100%",
+    borderRadius: "8px", overflow: "hidden", opacity: p1,
     transform: `translate(-50%, calc(-50% - ${(1 - p1) * 60}px)) scale(${0.6 + p1 * 0.4}) rotateX(${(1 - p1) * 80}deg)`,
   };
-
   const card2Style: React.CSSProperties = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    width: "100%",
-    height: "100%",
-    borderRadius: "8px",
-    overflow: "hidden",
-    opacity: p2,
+    position: "absolute", top: "50%", left: "50%", width: "100%", height: "100%",
+    borderRadius: "8px", overflow: "hidden", opacity: p2,
     transform: `translate(calc(-50% + ${(1 - p2) * 200}px), -50%) scale(${1.1 - p2 * 0.1}) rotateY(${(1 - p2) * 25}deg)`,
   };
-
   const card3Style: React.CSSProperties = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    width: "100%",
-    height: "100%",
-    borderRadius: "8px",
-    overflow: "hidden",
-    opacity: p3,
+    position: "absolute", top: "50%", left: "50%", width: "100%", height: "100%",
+    borderRadius: "8px", overflow: "hidden", opacity: p3,
     transform: `translate(calc(-50% + ${(1 - p3) * 350}px), -50%) scale(${1.1 - p3 * 0.1}) rotateY(${(1 - p3) * 25}deg)`,
   };
 
   return (
     <div ref={containerRef} className="relative h-[500vh]">
       <div className="sticky top-[5vh] md:top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden">
-        <div
-          className="relative w-[300px] md:w-[450px] mb-[83px]"
-          style={{ aspectRatio: "1.4 / 1", perspective: "1000px" }}
-        >
+        <div className="relative w-[300px] md:w-[450px] mb-[83px]" style={{ aspectRatio: "1.4 / 1", perspective: "1000px" }}>
           <div style={card1Style}>
             <Image src="/images/scroll-card-1.png" alt="" fill sizes="(max-width: 768px) 300px, 450px" className="w-full h-full object-cover" />
           </div>
@@ -81,23 +60,21 @@ export function StickyScrollSection() {
           </div>
         </div>
 
-        <div className="flex space-x-2 text-[28px] md:text-[40px] font-medium text-[#1F4E88]">
-          <span style={{ opacity: 0.2 + p1 * 0.8 }}>Fast.</span>
-          <span style={{ opacity: 0.2 + p2 * 0.8 }}>Flawless.</span>
-          <span style={{ opacity: 0.2 + p3 * 0.8 }}>GoodCode.</span>
+        <div
+          className="flex space-x-2 text-[28px] md:text-[40px] font-medium"
+          style={{ color: "#443627", fontFamily: "var(--font-fraunces, 'Fraunces'), serif" }}
+        >
+          <span style={{ opacity: 0.2 + p1 * 0.8 }}>Cepat.</span>
+          <span style={{ opacity: 0.2 + p2 * 0.8 }}>Rapi.</span>
+          <span style={{ opacity: 0.2 + p3 * 0.8, color: "#D98324" }}>Good.code.</span>
         </div>
 
-        <p className="text-[#2F5F98] text-center max-w-[400px] font-thin mt-3 mb-6 text-base">
-          Delivering user-focused website solutions that drive impact and set you apart from the competition.
+        <p className="text-center max-w-[400px] font-light mt-3 mb-6 text-base" style={{ color: "#6B5238" }}>
+          Solusi website yang berpusat pada pengguna — dirancang untuk membuat bisnis kamu menonjol dan tumbuh.
         </p>
 
-        <a
-          href="https://astakona.sg.larksuite.com/share/base/form/shrlgDF86d3TLy5irv1GLxa5AQb"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="gc-glass-btn"
-        >
-          Start Your Project Today
+        <a href={BRIEF} target="_blank" rel="noopener noreferrer" className="gc-warm-btn">
+          Mulai Proyek Sekarang
         </a>
       </div>
     </div>

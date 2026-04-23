@@ -9,26 +9,26 @@ interface FeatureCard {
 
 const cards: FeatureCard[] = [
   {
-    title: "Web Design",
-    desc: "Unleash captivating designs that blend aesthetics with functionality.",
+    title: "Desain Web",
+    desc: "Tampilan yang memadukan estetika dan fungsi — bukan template, tapi identitas brand kamu.",
     img: "/features/Container.png",
     imgClass: "w-full",
   },
   {
     title: "Web Development",
-    desc: "Build robust, high-performance websites with our expert developers.",
+    desc: "Website berperforma tinggi, cepat load, dan stabil dibangun oleh developer berpengalaman.",
     img: "/features/Code Block.png",
     imgClass: "w-full",
   },
   {
     title: "Copywriting",
-    desc: "Craft compelling and persuasive copy that engages your audience and drives conversions.",
+    desc: "Tulisan yang persuasif, relevan, dan menggerakkan pembaca untuk jadi pelanggan.",
     img: "/features/Skeleton.png",
     imgClass: "w-full py-8 px-5",
   },
   {
     title: "CMS Management",
-    desc: "Implement flexible and easy-to-use platforms to manage your content effortlessly.",
+    desc: "Kelola konten website sendiri dengan mudah — tanpa harus paham kode sama sekali.",
     img: "/features/Illustration.png",
     imgClass: "w-full py-4 px-5",
   },
@@ -36,42 +36,42 @@ const cards: FeatureCard[] = [
 
 const doubled = [...cards, ...cards];
 
+const BG_GRAD = "linear-gradient(to right, rgb(242,246,208), transparent)";
+const BG_GRAD_R = "linear-gradient(to left, rgb(242,246,208), transparent)";
+
 export function HowItWorksSection() {
   return (
-    <section id="process" className="text-[#1F4E88] mt-[237px]">
+    <section id="process" className="mt-[237px]" style={{ color: "#443627" }}>
       <div className="max-w-6xl mb-8">
-        <h2 className="text-2xl font-medium mb-2 text-[#1F4E88]">How It Works</h2>
-        <p className="text-base text-[#2F5F98]">
-          Let&apos;s Build Your Professional Website Fast. Flawless. GoodCode.
+        <h2
+          className="text-2xl font-medium mb-2"
+          style={{ color: "#443627", fontFamily: "var(--font-fraunces, 'Fraunces'), serif" }}
+        >
+          Cara Kerja
+        </h2>
+        <p className="text-base font-light" style={{ color: "#6B5238" }}>
+          Kami bangun website kamu — Cepat. Rapi. Good.code.
         </p>
       </div>
 
       <div className="relative flex overflow-hidden">
-        <div
-          className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to right, rgb(213,223,234), transparent)" }}
-        />
-        <div
-          className="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to left, rgb(213,223,234), transparent)" }}
-        />
+        <div className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none" style={{ background: BG_GRAD }} />
+        <div className="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none" style={{ background: BG_GRAD_R }} />
 
-        <div
-          className="flex gap-6 min-w-max px-4"
-          style={{ animation: "scroll 20s linear infinite" }}
-        >
+        <div className="flex gap-6 min-w-max px-4" style={{ animation: "scroll 20s linear infinite" }}>
           {doubled.map((card, index) => (
             <div
               key={index}
-              className="w-[320px] md:w-[360px] h-[420px] flex-shrink-0 rounded-2xl border-2 border-[#AEC5DD] bg-[#E7EEF7] overflow-hidden flex flex-col justify-between group relative"
+              className="w-[320px] md:w-[360px] h-[420px] flex-shrink-0 rounded-2xl overflow-hidden flex flex-col justify-between group relative"
+              style={{ border: "2px solid #DCC58F", background: "#F7ECCD" }}
             >
               <div
                 className="absolute top-[-10px] left-40 w-[32px] h-[180px] rounded-full rotate-[-21deg] pointer-events-none"
-                style={{ background: "rgba(107,155,203,0.4)", filter: "blur(75px)" }}
+                style={{ background: "rgba(217,131,36,0.25)", filter: "blur(75px)" }}
               />
               <div className="relative z-10 p-8 flex flex-col items-start gap-4">
-                <h3 className="text-xl font-semibold text-[#1F4E88]">{card.title}</h3>
-                <p className="text-sm text-[#4F84BC] leading-relaxed">{card.desc}</p>
+                <h3 className="text-xl font-semibold" style={{ color: "#443627", fontFamily: "var(--font-fraunces, 'Fraunces'), serif" }}>{card.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "#6B5238" }}>{card.desc}</p>
               </div>
               <div className="relative w-full h-auto mt-auto flex items-end justify-end">
                 <Image src={card.img} alt={card.title} width={360} height={220} className={card.imgClass} />

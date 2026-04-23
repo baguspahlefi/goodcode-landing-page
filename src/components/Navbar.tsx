@@ -1,50 +1,111 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { MenuIcon } from "@/components/icons";
+
+const WA = "https://wa.me/6285608537600?text=Halo%20Good.code%2C%20saya%20ingin%20konsultasi%20soal%20website%20untuk%20bisnis%20saya";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "#services" },
-  { label: "How it Works", href: "#process" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Testimonials", href: "#testimonial" },
+  { label: "Layanan", href: "#services" },
+  { label: "Cara Kerja", href: "#process" },
+  { label: "Testimoni", href: "#testimonial" },
 ];
 
 export function Navbar() {
+  const [open, setOpen] = useState(false);
+
   return (
     <>
       <nav
-        className="fixed top-0 left-0 right-0 z-10 md:z-50 flex items-center justify-between px-6 md:px-8 py-[22px] bg-transparent md:bg-white/30 md:backdrop-blur-md md:border-b md:border-white/35 md:shadow-[0_10px_30px_rgba(31,78,136,0.10)]"
+        className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-6 md:px-8 py-4 transition-all duration-300"
+        style={{
+          background: "rgba(242,246,208,0.9)",
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+          borderBottom: "1px solid #DCC58F",
+          fontFamily: "var(--font-dm-sans, 'DM Sans'), sans-serif",
+        }}
       >
-        <Link href="/" className="inline-flex items-center">
-          <Image
-            src="/images/goodcode-logo.svg"
-            alt="GoodCode"
-            width={230}
-            height={52}
-            priority
-            className="w-[170px] md:w-[230px] h-auto drop-shadow-[0_8px_20px_rgba(79,132,188,0.18)]"
-          />
+        <Link
+          href="/"
+          className="text-[20px] font-medium tracking-[-0.01em] text-[#443627]"
+          style={{ fontFamily: "var(--font-fraunces, 'Fraunces'), serif" }}
+        >
+          Good<span style={{ color: "#D98324" }}>.</span>code
         </Link>
 
-        <ul className="hidden md:flex gap-5 text-[#2F5F98] font-normal text-base leading-[20px]">
+        <ul className="hidden md:flex items-center gap-7">
           {navLinks.map(({ label, href }) => (
             <li key={href}>
-              <Link href={href} className="hover:text-[#1F4E88] transition-colors duration-200">
+              <Link
+                href={href}
+                className="text-[13px] font-normal text-[#92724F] hover:text-[#443627] transition-colors duration-200"
+              >
                 {label}
               </Link>
             </li>
           ))}
         </ul>
+
+        <a
+          href={WA}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden md:inline-flex items-center px-5 py-2 rounded-full text-[13px] font-medium text-white transition-all duration-200 hover:-translate-y-px"
+          style={{
+            background: "#D98324",
+            boxShadow: "0 6px 16px rgba(217,131,36,0.28)",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.background = "#B86B1A")}
+          onMouseLeave={(e) => (e.currentTarget.style.background = "#D98324")}
+        >
+          Konsultasi Gratis
+        </a>
+
+        <button
+          onClick={() => setOpen(!open)}
+          className="md:hidden w-9 h-9 flex items-center justify-center rounded-lg text-base text-[#6B5238] transition-colors duration-200"
+          style={{ border: "1px solid #DCC58F", background: "#FFFFFF" }}
+          aria-label="Menu"
+        >
+          {open ? "✕" : "☰"}
+        </button>
       </nav>
 
-      <button
-        type="button"
-        className="fixed top-6 right-6 z-10 md:hidden w-10 h-10 border border-white/40 bg-white/35 backdrop-blur-md rounded-lg flex flex-col items-center justify-center gap-1.5 shadow-[0_10px_24px_rgba(31,78,136,0.18)] hover:bg-white/50 transition-all"
-        aria-label="Open menu"
-      >
-        <MenuIcon className="w-5 h-3.5 text-[#2F5F98]" />
-      </button>
+      {open && (
+        <div
+          className="fixed top-[57px] left-0 right-0 z-[99] px-6 pt-4 pb-6 flex flex-col gap-0.5"
+          style={{
+            background: "rgba(247,236,205,0.98)",
+            backdropFilter: "blur(20px)",
+            borderBottom: "1px solid #DCC58F",
+            fontFamily: "var(--font-dm-sans, 'DM Sans'), sans-serif",
+          }}
+        >
+          {navLinks.map(({ label, href }) => (
+            <Link
+              key={href}
+              href={href}
+              onClick={() => setOpen(false)}
+              className="text-[15px] py-3 text-[#6B5238] hover:text-[#443627] transition-colors"
+              style={{ borderBottom: "1px solid #DCC58F" }}
+            >
+              {label}
+            </Link>
+          ))}
+          <a
+            href={WA}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 py-3 rounded-full text-white text-[14px] font-medium text-center"
+            style={{ background: "#D98324" }}
+            onClick={() => setOpen(false)}
+          >
+            Konsultasi Gratis
+          </a>
+        </div>
+      )}
     </>
   );
 }

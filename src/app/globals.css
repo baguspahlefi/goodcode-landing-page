@@ -136,6 +136,35 @@
     transform: translateY(-1px);
     box-shadow: 0 14px 28px rgba(79, 132, 188, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.8);
   }
+
+  /* Warm (earthy amber) button — used on portfolio page */
+  .gc-warm-btn {
+    @apply inline-flex items-center justify-center rounded-[320px] px-6 py-3 text-sm font-medium whitespace-nowrap;
+    color: #fff;
+    background: #D98324;
+    border: 1px solid rgba(217,131,36,0.3);
+    transition: all 0.25s ease;
+  }
+
+  .gc-warm-btn:hover {
+    background: #B86B1A;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(217,131,36,0.3);
+  }
+
+  .gc-warm-btn-ghost {
+    @apply inline-flex items-center justify-center rounded-[320px] px-6 py-3 text-sm font-medium whitespace-nowrap;
+    color: #6B5238;
+    background: #FFFFFF;
+    border: 1px solid #C6A466;
+    transition: all 0.2s ease;
+  }
+
+  .gc-warm-btn-ghost:hover {
+    border-color: #D98324;
+    color: #D98324;
+    background: rgba(217,131,36,0.08);
+  }
 }
 
 /* ============ GOODCODE ANIMATIONS ============ */
@@ -225,8 +254,8 @@ html { scroll-behavior: smooth; }
 .gc-home .nav-links { display:flex;align-items:center;gap:28px }
 .gc-home .nav-links a { font-size:13px;color:var(--text3);text-decoration:none;transition:color .2s;font-weight:400 }
 .gc-home .nav-links a:hover { color:var(--text) }
-.gc-home .nav-cta { background:var(--accent);color:#fff;padding:9px 20px;border-radius:100px;font-size:13px;font-weight:500;text-decoration:none;transition:all .2s }
-.gc-home .nav-cta:hover { background:var(--accent2);transform:translateY(-1px);box-shadow:0 6px 16px rgba(217,131,36,.3) }
+.gc-home .nav-cta { background:var(--accent);color:#fff !important;padding:9px 20px;border-radius:100px;font-size:13px;font-weight:500;text-decoration:none;transition:all .2s }
+.gc-home .nav-cta:hover { background:var(--accent2);color:#fff !important;transform:translateY(-1px);box-shadow:0 6px 16px rgba(217,131,36,.3) }
 .gc-home .nav-burger { display:none;background:var(--white);border:1px solid var(--border);color:var(--text2);width:36px;height:36px;border-radius:8px;cursor:pointer;font-size:16px;align-items:center;justify-content:center;transition:border-color .2s }
 .gc-home .nav-burger:hover { border-color:var(--border2) }
 .gc-home .mob-nav { display:none;flex-direction:column;position:fixed;top:57px;left:0;right:0;background:rgba(247,236,205,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 24px 24px;z-index:99;gap:2px }

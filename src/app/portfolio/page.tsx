@@ -29,11 +29,11 @@ export default function Portfolio() {
         <HeroSidebar />
 
         {/* Right: content layer that rises over the pinned hero on mobile */}
-        <main className="relative z-20 -mt-10 rounded-t-[28px] border-t border-[#AEC5DD] bg-[#d5dfea]/95 backdrop-blur-sm min-h-screen px-6 md:px-10 md:mt-0 md:rounded-none md:border-0 md:bg-transparent md:backdrop-blur-none md:ml-[33vw] md:w-[calc(100%-33vw)]">
+        <main className="relative z-20 -mt-10 rounded-t-[28px] border-t md:border-0 min-h-screen px-6 md:px-10 md:mt-0 md:rounded-none md:bg-transparent md:ml-[33vw] md:w-[calc(100%-33vw)]" style={{ borderColor: "#DCC58F", background: "rgba(242,246,208,0.95)", backdropFilter: "blur(4px)" }}>
           <LatestPortfolio />
           <FeaturedPortfolio />
           <ServicesSection />
-          <StickyScrollSection />
+          {/* <StickyScrollSection /> */}
           <HowItWorksSection />
           <BrandingGallery />
           <TestimonialsSection />

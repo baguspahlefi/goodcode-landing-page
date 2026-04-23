@@ -27,7 +27,12 @@ export function LatestPortfolio() {
   return (
     <section id="hero" className="pt-[100px] pb-16">
       <div className="mb-12">
-        <h2 className="text-xl md:text-2xl font-medium text-[#1F4E88]">Latest Portfolio</h2>
+        <h2
+          className="text-xl md:text-2xl font-medium"
+          style={{ color: "#443627", fontFamily: "var(--font-fraunces, 'Fraunces'), serif" }}
+        >
+          Proyek Terbaru
+        </h2>
       </div>
 
       <div className="grid grid-cols-1 gap-5">
@@ -35,6 +40,7 @@ export function LatestPortfolio() {
           <div
             key={index}
             className="relative rounded-2xl overflow-hidden aspect-[16/9] group"
+            style={{ border: "1px solid #DCC58F" }}
           >
             {item.type === "video" ? (
               <video

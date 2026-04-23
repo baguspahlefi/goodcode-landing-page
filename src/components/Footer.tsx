@@ -1,55 +1,49 @@
-import Image from "next/image";
-
-const WHATSAPP_URL =
-  "https://api.whatsapp.com/send?phone=628889888158&text=Hi%20GoodCode!%20I%20need%20a%20professional%20website%20that%20fits%20my%20brand%20and%20I%20am%20interested%20in%20the%20services%20you%20offer.%20Can%20you%20help%3F";
+const WA = "https://wa.me/6285608537600?text=Halo%20Good.code%2C%20saya%20ingin%20konsultasi%20soal%20website%20untuk%20bisnis%20saya";
+const BRIEF = "https://astakona.sg.larksuite.com/share/base/form/shrlgDF86d3TLy5irv1GLxa5AQb";
 
 export function Footer() {
   return (
-    <footer className="relative w-full bg-transparent overflow-hidden">
-      <div className="md:min-h-screen flex items-center justify-center">
-        <div className="relative max-w-7xl mx-auto px-4 pt-[25rem] md:pt-[14rem] pb-20 md:pb-10">
+    <footer className="relative w-full overflow-hidden" style={{ background: "transparent" }}>
+      <div className="flex items-center justify-center">
+        <div className="relative max-w-7xl mx-auto px-4 pt-16 md:pt-20 pb-20 md:pb-10">
           <div className="flex flex-col items-center space-y-8">
-            <Image
-              src="/images/goodcode-logo.svg"
-              alt="GoodCode"
-              width={230}
-              height={52}
-              className="w-[200px] md:w-[230px] h-auto"
-            />
+            {/* Logo */}
+            <div
+              className="text-[32px] font-medium tracking-[-0.02em]"
+              style={{ fontFamily: "var(--font-fraunces, 'Fraunces'), serif", color: "#443627" }}
+            >
+              Good<span style={{ color: "#D98324" }}>.</span>code
+            </div>
 
-            <h2 className="text-[32px] font-medium text-[#1F4E88] leading-tight text-center">
-              Let&apos;s Build Something
-              <br />
-              Fast. Flawless. GoodCode.
+            <h2
+              className="text-[32px] font-medium leading-tight text-center"
+              style={{ color: "#443627", fontFamily: "var(--font-fraunces, 'Fraunces'), serif" }}
+            >
+              Mari Bangun Sesuatu —<br />
+              <em style={{ color: "#D98324" }}>Cepat. Rapi. Good.code.</em>
             </h2>
 
             <div className="flex flex-col sm:flex-row gap-3 w-full max-w-sm mx-auto">
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="gc-glass-btn flex-1"
-              >
-                Free Consultation
+              <a href={WA} target="_blank" rel="noopener noreferrer" className="gc-warm-btn flex-1 justify-center">
+                Konsultasi Gratis
               </a>
-
-              <a
-                href="https://astakona.sg.larksuite.com/share/base/form/shrlgDF86d3TLy5irv1GLxa5AQb"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="gc-glass-btn-light flex-1"
-              >
-                Start Your Brief
+              <a href={BRIEF} target="_blank" rel="noopener noreferrer" className="gc-warm-btn-ghost flex-1 justify-center">
+                Mulai Briefing
               </a>
             </div>
 
-            <p className="text-[#4F84BC] text-base text-center">Book a 30 Min Call</p>
+            <p className="text-base text-center" style={{ color: "#92724F" }}>
+              Ngobrol 30 menit, gratis tanpa komitmen
+            </p>
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-10 left-0 right-0 text-center text-[#2F5F98] text-base">
-        © 2026 GoodCode. All rights reserved.
+      <div
+        className="absolute bottom-10 left-0 right-0 text-center text-base"
+        style={{ color: "#92724F" }}
+      >
+        © 2025 Good.code · Spesialis Ecommerce & Migrasi Marketplace · Semarang, Indonesia
       </div>
     </footer>
   );
