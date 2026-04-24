@@ -9,14 +9,11 @@ interface PortfolioItem {
 }
 
 const portfolioItems: PortfolioItem[] = [
-  { title: "Quaka Logistic", img: "/images/portfolio/quaka-logistic.webp", year: "2025", cat: "B2C", href: "/portfolio/quaka-logistic" },
-  { title: "Praglas Raya", img: "/images/portfolio/praglas-raya.webp", year: "2025", cat: "Chemical", href: "/portfolio/praglas-raya" },
-  { title: "Artmosphere Design", img: "/images/portfolio/artmosphere-design.webp", year: "2025", cat: "Agency", href: "/portfolio/artmosphere-design" },
-  { title: "Arcelon Residence", img: "/images/portfolio/arcelon.webp", year: "2024", cat: "Real Estate", href: "/portfolio/arcelon" },
-  { title: "PT Danan Wingus Sakti", img: "/images/portfolio/danan.webp", year: "2024", cat: "Oil & Gas", href: "/portfolio/pt-danan-wingus-sakti" },
-  { title: "Multi Power Aditama", img: "/images/portfolio/multi-power-aditama.webp", year: "2025", cat: "Heavy Equipment", href: "/portfolio/multi-power-aditama" },
-  { title: "Katiga Consulting", img: "/images/portfolio/katiga.webp", year: "2025", cat: "Consulting", href: "/portfolio/katiga" },
-  { title: "PMTS", img: "/images/portfolio/pmts.webp", year: "2025", cat: "Engineering", href: "/portfolio/pmts" },
+  { title: "Piamour Studios", img: "/images/portfolio/piamour-studios.png", year: "2024", cat: "Oil & Gas", href: "https://piamour-studios.vercel.app/" },
+  { title: "Nirmala Cosmetic", img: "/images/portfolio/nirmala-cosmetic.png", year: "2025", cat: "Cosmetic", href: "https://nirmala-cosmetic.vercel.app/" },
+  { title: "Nusantara Oud", img: "/images/portfolio/nusantara-oud.png", year: "2025", cat: "Perfume", href: "https://nusantara-oud-portofolio.vercel.app/" },
+  { title: "Kala Home", img: "/images/portfolio/kala-home.png", year: "2026", cat: "Interior", href: "https://kala-home.vercel.app/" },
+  { title: "Nexa Gear", img: "/images/portfolio/nexa-gear.png", year: "2026", cat: "Automotive", href: "https://nexa-gear.vercel.app/" },
 ];
 
 export function FeaturedPortfolio() {
