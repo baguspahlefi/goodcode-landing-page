@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   description:
     "Spesialis migrasi marketplace ke website sendiri. Saya bantu pemilik toko online migrasi dari Shopee, Tokopedia ke website ecommerce milik sendiri.",
   icons: {
-    icon: "/images/logo.png",
+    icon: "/images/brands/logo.png",
   },
 };
 

@@ -72,9 +72,9 @@ const VS_ROWS: [string, React.ReactNode, React.ReactNode, React.ReactNode][] = [
 ];
 
 const TESTI = [
-  { av: "P", name: "Piamour Studios", sub: "Fashion wanita · Semarang", q: "\"Dulu tiap bulan deg-degan lihat potongan komisi Shopee. Sekarang semua transaksi masuk penuh, data pembeli ada di tangan saya, dan saya bisa follow up sendiri kapan pun. Rasanya beda banget.\"", result: "Checkout langsung tanpa perantara platform", delay: "" },
-  { av: "A", name: "Aruna Cloth", sub: "Batik modern · Yogyakarta", q: "\"Yang saya takutin dulu adalah ribet ngurusnya. Ternyata setelah onboarding, saya bisa tambah produk dan proses order sendiri. Dashboard-nya beneran mudah dipakai.\"", result: "Kelola toko mandiri tanpa bantuan teknis", delay: " d1" },
-  { av: "N", name: "Nara Studio", sub: "Aksesoris handmade · Bandung", q: "\"Tiga minggu dari pertama ngobrol sampai website live. Cepat, komunikasinya enak, dan hasilnya jauh di atas ekspektasi saya.\"", result: "Live dalam 3 minggu dari konsultasi pertama", delay: " d2" },
+  { av: "P", name: "Piamour Studios", sub: "Fashion wanita", img: "/images/testimoni-piamour.png", q: "", result: "Checkout langsung tanpa perantara platform", delay: "" },
+  { av: "N", name: "Nusantara Oud", sub: "Parfum luxury", img: "/images/Ecommerce-nusantara-oud.png", q: "", result: "Conversion meningkat dari traffic organik", delay: " d1" },
+  { av: "K", name: "Kala Home", sub: "Furnitur & dekorasi · Jakarta", img: "/images/Ecommerce-kala.png", q: "", result: "Website-nya beda — diakui customer langsung", delay: " d2" },
 ];
 
 const FAQ_ITEMS = [
@@ -90,12 +90,24 @@ export function HomePage() {
   const [navScrolled, setNavScrolled] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [lightboxImg, setLightboxImg] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setNavScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!lightboxImg) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setLightboxImg(null); };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [lightboxImg]);
 
   useEffect(() => {
     const io = new IntersectionObserver(
@@ -251,87 +263,226 @@ export function HomePage() {
           <p className="sp an d2">Bisa dibuka, bisa dirasakan pengalaman belanjaannya langsung dari HP kamu.</p>
           <div className="porto-main">
             {/* Big card — Piamour */}
-            <div className="pc big an d1">
-              <div className="pc-screen">
-                <div className="pc-mock">
-                  <div className="pc-bar">
-                    <div className="pc-dot r" /><div className="pc-dot y" /><div className="pc-dot g" />
-                    <div className="pc-url" />
-                  </div>
-                  <div className="pc-body">
-                    <div className="pc-hero-m">
-                      <div className="pc-lines"><div className="pc-l w60" /><div className="pc-l w40" /></div>
-                      <div className="pc-cbtn" />
-                    </div>
-                    <div className="pc-cards">
-                      {[
-                        "linear-gradient(135deg,#d4c4b0,#a8906e)",
-                        "linear-gradient(135deg,#b0c4d4,#6e90a8)",
-                        "linear-gradient(135deg,#b0d4b8,#6ea876)",
-                      ].map((bg, i) => (
-                        <div key={i} className="pc-ci">
-                          <div className="pc-ci-img" style={{ background: bg }} />
-                          <div className="pc-ci-bd"><div className="pc-ci-l" /><div className="pc-ci-p" /></div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="pc-info">
-                <div className="pc-label">Proyek Aktif · Fashion Wanita · Semarang</div>
-                <div className="pc-name">Piamour Studios</div>
-                <div className="pc-desc">Sebelumnya hanya mengandalkan Shopee. Sekarang punya toko sendiri — pembeli checkout langsung, ongkir otomatis via Biteship, dan semua data transaksi sepenuhnya ada di tangan mereka.</div>
-                <div className="pc-tags">
-                  {["Next.js", "Supabase", "Biteship", "Vercel", "Full Ecommerce"].map((t) => (
-                    <span key={t} className="pc-tag">{t}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <a
+              href="https://piamour-studios.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pc big an d1 group"
+              style={{ display: "block", textDecoration: "none", position: "relative", height: "420px", overflow: "hidden" }}
+            >
+              {/* Full-card image */}
+              <Image
+                src="/images/piamour-porto-home.png"
+                alt="Piamour Studios — halaman produk"
+                fill
+                className="object-cover object-top transition-transform duration-700 ease-in-out group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 80vw"
+                priority
+              />
 
-            {/* Aruna Cloth */}
-            <div className="pc an d1">
-              <div className="pc-screen" style={{ height: "160px" }}>
-                <div className="pc-mock">
-                  <div className="pc-bar"><div className="pc-dot r" /><div className="pc-dot y" /><div className="pc-dot g" /><div className="pc-url" /></div>
-                  <div className="pc-body">
-                    <div style={{ display: "flex", flexDirection: "column", gap: "7px" }}>
-                      <div style={{ height: "32px", background: "var(--bg)", borderRadius: "5px" }} />
-                      <div style={{ height: "10px", background: "var(--border)", borderRadius: "2px", width: "65%" }} />
-                      <div style={{ height: "10px", background: "var(--border)", borderRadius: "2px", width: "45%" }} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="pc-info">
-                <div className="pc-label">Demo · Batik Modern · Yogyakarta</div>
-                <div className="pc-name">Aruna Cloth</div>
-                <div className="pc-desc">Katalog produk yang rapi dan cepat diakses dari HP. Dirancang untuk pembeli yang browse sambil rebahan.</div>
-                <div className="pc-tags"><span className="pc-tag">Landing Page</span><span className="pc-tag">Katalog</span></div>
-              </div>
-            </div>
+              {/* Persistent gradient — darkens bottom so text is readable */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{ background: "linear-gradient(to top, rgba(68,54,39,0.80) 0%, rgba(68,54,39,0.30) 45%, transparent 75%)" }}
+              />
 
-            {/* Nara Studio */}
-            <div className="pc an d2">
-              <div className="pc-screen" style={{ height: "160px" }}>
-                <div className="pc-mock">
-                  <div className="pc-bar"><div className="pc-dot r" /><div className="pc-dot y" /><div className="pc-dot g" /><div className="pc-url" /></div>
-                  <div className="pc-body">
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
-                      <div style={{ height: "56px", background: "var(--bg)", borderRadius: "5px" }} />
-                      <div style={{ height: "56px", background: "var(--bg)", borderRadius: "5px" }} />
+              {/* Shine sweep on hover */}
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                style={{ background: "linear-gradient(105deg, transparent 38%, rgba(255,255,255,0.13) 50%, transparent 62%)" }}
+              />
+
+              {/* Overlay info — slides up on hover */}
+              <div className="absolute bottom-0 left-0 right-0 z-10 p-6 translate-y-1 group-hover:translate-y-0 transition-transform duration-500">
+                <div className="flex items-end justify-between gap-4">
+                  <div>
+                    {/* Badges */}
+                    <div className="flex items-center gap-2 mb-3">
+                      <span
+                        className="text-[10px] font-semibold tracking-widest uppercase px-2.5 py-1 rounded-full"
+                        style={{ background: "rgba(220,197,143,0.20)", color: "#DCC58F", border: "1px solid rgba(220,197,143,0.40)" }}
+                      >
+                        Featured Project
+                      </span>
+                      <span
+                        className="text-[10px] font-medium tracking-widest uppercase px-2.5 py-1 rounded-full"
+                        style={{ background: "rgba(255,255,255,0.12)", color: "#F2F6D0", border: "1px solid rgba(255,255,255,0.22)" }}
+                      >
+                        Fashion · 2024
+                      </span>
                     </div>
+                    {/* Title */}
+                    <p
+                      className="text-2xl font-medium leading-tight mb-1"
+                      style={{ color: "#F7ECCD", fontFamily: "var(--font-fraunces, 'Fraunces'), serif" }}
+                    >
+                      Piamour Studios
+                    </p>
+                    {/* Description — fades in on hover */}
+                    <p
+                      className="text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-75"
+                      style={{ color: "#C4A882", maxWidth: "480px" }}
+                    >
+                      E-commerce fashion dengan katalog produk lengkap & checkout terintegrasi
+                    </p>
+                  </div>
+
+                  {/* Arrow button */}
+                  <div
+                    className="w-11 h-11 rounded-full flex-shrink-0 flex items-center justify-center opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500"
+                    style={{ background: "#D98324", boxShadow: "0 4px 16px rgba(217,131,36,0.50)" }}
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M7 17L17 7M7 7h10v10" />
+                    </svg>
                   </div>
                 </div>
               </div>
-              <div className="pc-info">
-                <div className="pc-label">Demo · Aksesoris Handmade · Bandung</div>
-                <div className="pc-name">Nara Studio</div>
-                <div className="pc-desc">Toko online dengan wishlist dan akun pelanggan — biar pembeli yang belum siap beli sekarang, tidak pergi selamanya.</div>
-                <div className="pc-tags"><span className="pc-tag">Ecommerce</span><span className="pc-tag">Wishlist</span></div>
+            </a>
+
+            {/* Nusantara Oud */}
+            <a
+              href="https://nusantara-oud-portofolio.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pc an d1 group"
+              style={{ display: "block", textDecoration: "none", position: "relative", height: "340px", overflow: "hidden" }}
+            >
+              <Image
+                src="/images/nusantara-porto-home.png"
+                alt="Nusantara Oud — halaman koleksi"
+                fill
+                className="object-cover object-top transition-transform duration-700 ease-in-out group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+
+              {/* Gradient overlay */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{ background: "linear-gradient(to top, rgba(10,8,5,0.85) 0%, rgba(10,8,5,0.25) 50%, transparent 78%)" }}
+              />
+
+              {/* Shine sweep on hover */}
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                style={{ background: "linear-gradient(105deg, transparent 38%, rgba(255,255,255,0.10) 50%, transparent 62%)" }}
+              />
+
+              {/* Overlay info */}
+              <div className="absolute bottom-0 left-0 right-0 z-10 p-5 translate-y-1 group-hover:translate-y-0 transition-transform duration-500">
+                <div className="flex items-end justify-between gap-3">
+                  <div>
+                    <div className="flex items-center gap-2 mb-2.5">
+                      <span
+                        className="text-[10px] font-semibold tracking-widest uppercase px-2.5 py-1 rounded-full"
+                        style={{ background: "rgba(212,175,55,0.18)", color: "#D4AF37", border: "1px solid rgba(212,175,55,0.38)" }}
+                      >
+                        Proyek Aktif
+                      </span>
+                      <span
+                        className="text-[10px] font-medium tracking-widest uppercase px-2.5 py-1 rounded-full"
+                        style={{ background: "rgba(255,255,255,0.10)", color: "#e8e0d0", border: "1px solid rgba(255,255,255,0.20)" }}
+                      >
+                        Perfume · 2025
+                      </span>
+                    </div>
+                    <p
+                      className="text-xl font-medium leading-tight mb-1"
+                      style={{ color: "#F5F0E8", fontFamily: "var(--font-fraunces, 'Fraunces'), serif" }}
+                    >
+                      Nusantara Oud
+                    </p>
+                    <p
+                      className="text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-75"
+                      style={{ color: "#B8A88A" }}
+                    >
+                      Brand parfum luxury dengan katalog koleksi & storytelling produk
+                    </p>
+                  </div>
+
+                  <div
+                    className="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500"
+                    style={{ background: "#D98324", boxShadow: "0 4px 16px rgba(217,131,36,0.50)" }}
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M7 17L17 7M7 7h10v10" />
+                    </svg>
+                  </div>
+                </div>
               </div>
-            </div>
+            </a>
+
+            {/* Kala Home */}
+            <a
+              href="https://kala-home.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pc an d2 group"
+              style={{ display: "block", textDecoration: "none", position: "relative", height: "340px", overflow: "hidden" }}
+            >
+              <Image
+                src="/images/kala-home-porto-home.png"
+                alt="Kala Home — halaman koleksi"
+                fill
+                className="object-cover object-top transition-transform duration-700 ease-in-out group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+
+              {/* Gradient overlay */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{ background: "linear-gradient(to top, rgba(30,26,20,0.82) 0%, rgba(30,26,20,0.22) 50%, transparent 78%)" }}
+              />
+
+              {/* Shine sweep on hover */}
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                style={{ background: "linear-gradient(105deg, transparent 38%, rgba(255,255,255,0.12) 50%, transparent 62%)" }}
+              />
+
+              {/* Overlay info */}
+              <div className="absolute bottom-0 left-0 right-0 z-10 p-5 translate-y-1 group-hover:translate-y-0 transition-transform duration-500">
+                <div className="flex items-end justify-between gap-3">
+                  <div>
+                    <div className="flex items-center gap-2 mb-2.5">
+                      <span
+                        className="text-[10px] font-semibold tracking-widest uppercase px-2.5 py-1 rounded-full"
+                        style={{ background: "rgba(220,197,143,0.18)", color: "#DCC58F", border: "1px solid rgba(220,197,143,0.38)" }}
+                      >
+                        Proyek Aktif
+                      </span>
+                      <span
+                        className="text-[10px] font-medium tracking-widest uppercase px-2.5 py-1 rounded-full"
+                        style={{ background: "rgba(255,255,255,0.10)", color: "#e8e4dc", border: "1px solid rgba(255,255,255,0.20)" }}
+                      >
+                        Interior · 2026
+                      </span>
+                    </div>
+                    <p
+                      className="text-xl font-medium leading-tight mb-1"
+                      style={{ color: "#F7F4EF", fontFamily: "var(--font-fraunces, 'Fraunces'), serif" }}
+                    >
+                      Kala Home
+                    </p>
+                    <p
+                      className="text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-75"
+                      style={{ color: "#B8AD9E" }}
+                    >
+                      Toko furnitur & dekorasi rumah dengan katalog koleksi yang elegan
+                    </p>
+                  </div>
+
+                  <div
+                    className="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500"
+                    style={{ background: "#D98324", boxShadow: "0 4px 16px rgba(217,131,36,0.50)" }}
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M7 17L17 7M7 7h10v10" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </a>
           </div>
 
           <div style={{ marginTop: "32px", textAlign: "center" }}>
@@ -452,21 +603,100 @@ export function HomePage() {
           <h2 className="sh an d1">Bukan saya yang bilang.<br /><em>Ini dari yang sudah merasakan.</em></h2>
           <p className="sp an d2">Cerita langsung dari brand yang sudah pindah dari ketergantungan marketplace dan sekarang mengelola toko online mereka sendiri.</p>
           <div className="testi-grid">
-            {TESTI.map((t, i) => (
-              <div key={i} className={`testi-card an${t.delay}`}>
-                <div className="testi-stars">★★★★★</div>
-                <p className="testi-q">{t.q}</p>
-                <div className="testi-who">
-                  <div className="testi-av">{t.av}</div>
-                  <div>
-                    <div className="testi-name">{t.name}</div>
-                    <div className="testi-sub">{t.sub}</div>
+            {TESTI.map((t, i) =>
+              t.img ? (
+                <div
+                  key={i}
+                  className={`testi-card an${t.delay} group`}
+                  style={{ padding: 0, overflow: "hidden", cursor: "zoom-in" }}
+                  onClick={() => setLightboxImg(t.img!)}
+                >
+                  <div style={{ position: "relative", width: "100%", height: "340px", overflow: "hidden" }}>
+                    <Image
+                      src={t.img}
+                      alt={`Testimoni ${t.name}`}
+                      fill
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      style={{ background: "rgba(68,54,39,0.45)" }}>
+                      <div className="flex flex-col items-center gap-2">
+                        <div className="w-12 h-12 rounded-full flex items-center justify-center"
+                          style={{ background: "rgba(255,255,255,0.95)", boxShadow: "0 4px 16px rgba(0,0,0,0.2)" }}>
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#443627" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35M11 8v6M8 11h6" />
+                          </svg>
+                        </div>
+                        <span style={{ fontSize: "12px", fontWeight: 600, color: "#fff", letterSpacing: "0.5px" }}>Lihat Penuh</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div style={{ padding: "16px 20px", borderTop: "1px solid var(--border)" }}>
+                    <div className="testi-who">
+                      <div className="testi-av">{t.av}</div>
+                      <div>
+                        <div className="testi-name">{t.name}</div>
+                        <div className="testi-sub">{t.sub}</div>
+                      </div>
+                    </div>
+                    <div className="testi-result" style={{ marginTop: "12px", paddingTop: "12px" }}>{t.result}</div>
                   </div>
                 </div>
-                <div className="testi-result">{t.result}</div>
-              </div>
-            ))}
+              ) : (
+                <div key={i} className={`testi-card an${t.delay}`}>
+                  <div className="testi-stars">★★★★★</div>
+                  <p className="testi-q">{t.q}</p>
+                  <div className="testi-who">
+                    <div className="testi-av">{t.av}</div>
+                    <div>
+                      <div className="testi-name">{t.name}</div>
+                      <div className="testi-sub">{t.sub}</div>
+                    </div>
+                  </div>
+                  <div className="testi-result">{t.result}</div>
+                </div>
+              )
+            )}
           </div>
+
+          {/* Lightbox */}
+          {lightboxImg && (
+            <div
+              className="fixed inset-0 z-[200] flex items-center justify-center"
+              style={{ background: "rgba(20,16,10,0.85)", backdropFilter: "blur(6px)", animation: "fadeIn 0.2s ease" }}
+              onClick={() => setLightboxImg(null)}
+            >
+              <div
+                className="relative"
+                style={{ maxHeight: "92vh", maxWidth: "92vw" }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <img
+                  src={lightboxImg}
+                  alt="Testimoni full"
+                  style={{
+                    maxHeight: "90vh",
+                    maxWidth: "90vw",
+                    width: "auto",
+                    height: "auto",
+                    borderRadius: "16px",
+                    boxShadow: "0 24px 80px rgba(0,0,0,0.6)",
+                    display: "block",
+                  }}
+                />
+                {/* Close button */}
+                <button
+                  onClick={() => setLightboxImg(null)}
+                  className="absolute -top-4 -right-4 w-10 h-10 rounded-full flex items-center justify-center transition-transform hover:scale-110"
+                  style={{ background: "#443627", color: "#F7ECCD", fontSize: "18px", border: "2px solid rgba(220,197,143,0.4)", boxShadow: "0 4px 16px rgba(0,0,0,0.4)" }}
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

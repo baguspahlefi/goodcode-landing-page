@@ -9,7 +9,7 @@ interface PortfolioItem {
 }
 
 const portfolioItems: PortfolioItem[] = [
-  { title: "Piamour Studios", img: "/images/portfolio/piamour-studios.png", year: "2024", cat: "Oil & Gas", href: "https://piamour-studios.vercel.app/" },
+  { title: "Piamour Studios", img: "/images/portfolio/piamour-studios.png", year: "2024", cat: "Fashion", href: "https://piamour-studios.vercel.app/" },
   { title: "Nirmala Cosmetic", img: "/images/portfolio/nirmala-cosmetic.png", year: "2025", cat: "Cosmetic", href: "https://nirmala-cosmetic.vercel.app/" },
   { title: "Nusantara Oud", img: "/images/portfolio/nusantara-oud.png", year: "2025", cat: "Perfume", href: "https://nusantara-oud-portofolio.vercel.app/" },
   { title: "Kala Home", img: "/images/portfolio/kala-home.png", year: "2026", cat: "Interior", href: "https://kala-home.vercel.app/" },
@@ -31,9 +31,10 @@ export function FeaturedPortfolio() {
         </p>
       </div>
 
+      {/* Grid cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-8">
         {portfolioItems.map((item) => (
-          <a key={item.href} href={item.href} className="group relative block overflow-hidden">
+          <a key={item.href} href={item.href} target="_blank" rel="noopener noreferrer" className="group relative block overflow-hidden">
             <div className="relative aspect-[3/2] overflow-hidden rounded-2xl" style={{ border: "1px solid #DCC58F" }}>
               <Image
                 src={item.img}

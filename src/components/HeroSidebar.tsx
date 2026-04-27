@@ -4,12 +4,12 @@ const WA = "https://wa.me/6285608537600?text=Halo%20Good.code%2C%20saya%20ingin%
 const BRIEF = "https://astakona.sg.larksuite.com/share/base/form/shrlgDF86d3TLy5irv1GLxa5AQb";
 
 const brandLogos = [
-  { src: "/images/brands/devin.png", alt: "Devin" },
-  { src: "/images/brands/tangguh.png", alt: "Tangguh" },
-  { src: "/images/brands/wisnu.png", alt: "Wisnu" },
-  { src: "/images/brands/arcelon.png", alt: "Arcelon" },
-  { src: "/images/brands/jawa-arta.png", alt: "Jawa Arta" },
-  { src: "/images/brands/dws.png", alt: "DWS" },
+  { src: "/images/brands/react.png", alt: "React" },
+  { src: "/images/brands/supabase.png", alt: "Supabase" },
+  { src: "/images/brands/vercel.png", alt: "vercel" },
+  { src: "/images/brands/github.png", alt: "Github" },
+  { src: "/images/brands/next.png", alt: "Next.js" },
+  { src: "/images/brands/laravel.png", alt: "Laravel" }
 ];
 
 const doubled = [...brandLogos, ...brandLogos];
@@ -73,7 +73,7 @@ export function HeroSidebar() {
           className="text-[15px] font-normal mb-3 leading-[120%]"
           style={{ color: "#443627" }}
         >
-          Dipercaya oleh brand-brand lokal
+          Dibangun dengan teknologi modern
         </p>
 
         <div className="relative overflow-hidden h-[32px] md:max-w-[27.865vw]">
@@ -87,7 +87,7 @@ export function HeroSidebar() {
           />
           <div className="flex gap-4 items-center h-[40px] animate-scroll">
             {doubled.map((logo, i) => (
-              <div key={i} className="flex-shrink-0 grayscale hover:grayscale-0 transition-all flex items-center">
+              <div key={i} className="flex-shrink-0 grayscale hover:grayscale-0 transition-all flex items-center" style={{ mixBlendMode: "multiply" }}>
                 <Image
                   src={logo.src}
                   alt={logo.alt}
