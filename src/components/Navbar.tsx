@@ -7,9 +7,10 @@ const WA = "https://wa.me/6285608537600?text=Halo%20Good.code%2C%20saya%20ingin%
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Layanan", href: "#services" },
-  { label: "Cara Kerja", href: "#process" },
-  { label: "Testimoni", href: "#testimonial" },
+  { label: "Layanan", href: "/#services" },
+  { label: "Cara Kerja", href: "/#process" },
+  { label: "Testimoni", href: "/#testimonial" },
+  { label: "Kalkulator", href: "/kalkulator" },
 ];
 
 export function Navbar() {

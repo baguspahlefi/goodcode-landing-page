@@ -13,7 +13,7 @@ const portfolioItems: PortfolioItem[] = [
   { title: "Nirmala Cosmetic", img: "/images/portfolio/nirmala-cosmetic.png", year: "2025", cat: "Cosmetic", href: "https://nirmala-cosmetic.vercel.app/" },
   { title: "Nusantara Oud", img: "/images/portfolio/nusantara-oud.png", year: "2025", cat: "Perfume", href: "https://nusantara-oud-portofolio.vercel.app/" },
   { title: "Kala Home", img: "/images/portfolio/kala-home.png", year: "2026", cat: "Interior", href: "https://kala-home.vercel.app/" },
-  { title: "Nexa Gear", img: "/images/portfolio/nexa-gear.png", year: "2026", cat: "Automotive", href: "https://nexa-gear.vercel.app/" },
+  { title: "Nexa Gear", img: "/images/portfolio/nexa-gear.png", year: "2026", cat: "Automotive", href: "https://neon-gear-portofolio.vercel.app//" },
 ];
 
 export function FeaturedPortfolio() {

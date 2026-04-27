@@ -38,6 +38,9 @@ export const metadata: Metadata = {
   title: "Good.code — Website Ecommerce untuk UMKM Indonesia",
   description:
     "Spesialis migrasi marketplace ke website sendiri. Saya bantu pemilik toko online migrasi dari Shopee, Tokopedia ke website ecommerce milik sendiri.",
+  icons: {
+    icon: "/images/logo.png",
+  },
 };
 
 export default function RootLayout({
